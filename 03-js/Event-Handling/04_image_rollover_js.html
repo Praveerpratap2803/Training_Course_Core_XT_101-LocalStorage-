@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image rollover</title>
+        <style>
+            .img-fluid {
+                width: 100%;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            div {
+                display: grid;
+                width: 200px;
+                height: 300px;
+                background-color: olive;
+                color: white;
+                font-size: 1.25em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-rollover">
+            <img src="Image/abc.jpg" alt="Mickey Mouse" class="image img-fluid" />
+            <div class="hide rollover-text">Mickey mouse</div>
+        </div>
+
+        <script>
+            const rollover = document.querySelector( '.image-rollover' );
+
+            rollover.addEventListener( 'mouseenter', function() {
+                // search within rollover element only (so we are not using document.querySelector)
+                const image = rollover.querySelector( '.image' );
+                image.classList.add( 'hide' );
+
+                const text = rollover.querySelector( '.rollover-text' );
+                text.classList.remove( 'hide' );
+            });
+
+            rollover.addEventListener( 'mouseleave', function() {
+                const image = rollover.querySelector( '.image' );
+                image.classList.remove( 'hide' );
+
+                const text = rollover.querySelector( '.rollover-text' );
+                text.classList.add( 'hide' );
+            });
+        </script>
+    </body>
+</html>

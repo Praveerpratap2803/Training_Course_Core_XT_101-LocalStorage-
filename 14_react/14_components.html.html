@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello React</title>
+        <style>
+            .message {
+                padding: 0.5em 1em;
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: lightgray;
+            }
+
+            .message-info {
+                border: 1px solid navy;
+                background-color: navy;
+                color: white;
+            }
+            
+            .message-error {
+                border: 1px solid red;
+                background-color: crimson;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+
+            const Message = ({title,subTitle,variant,titleD})=>{
+                return(
+                    <React.Fragment>
+                        <div className={`message message-${variant}`}title={titleD}>
+                            {title}
+                            {subTitle}
+                            
+                        </div>
+                        
+                    </React.Fragment>
+                )
+            }
+            const messageEls=[
+            <Message 
+                title="Meetings are being fetched..." 
+                subTitle="Please wait..."
+                variant="info"
+                titleD="Information"
+            ></Message>,
+            <Message 
+                title="Teams are being fetched..." 
+                subTitle="Please wait..."
+                variant="error"
+                titleD="Error Message"
+            ></Message>
+
+            ]
+            const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
+            root.render( messageEls );
+        </script>
+    </body>
+</html>
+
+

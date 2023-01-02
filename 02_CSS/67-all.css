@@ -1,0 +1,9 @@
+section {
+    padding: 1em;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+img {
+    float: right; /* left / right */
+}

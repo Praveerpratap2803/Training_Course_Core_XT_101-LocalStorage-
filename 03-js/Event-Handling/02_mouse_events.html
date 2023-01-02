@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert {
+            padding: 1em;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The mouse events</h1>
+        <hr />
+        <div class="alert" id="mouse-event">Mouse event</div>
+        <div class="alert" id="mouse-position">Mouse position</div>
+
+    <script>
+        const me = document.querySelector('#mouse-event')
+        const mp = document.querySelector('#mouse-position');
+
+        function clickHandler(event){
+            console.log(event);
+            me.textContent = event.type;
+            
+        }
+        me.addEventListener('click',clickHandler);
+        me.addEventListener('dblclick',clickHandler)
+
+        function movementHandler(event){
+            console.log(event.type)
+            mp.innerHTML = `${event.offsetX}px,${event.offsetY}px , (${event.type})`
+        }
+
+        mp.addEventListener('mouseenter',movementHandler);
+        mp.addEventListener('mouseleave',movementHandler);
+        mp.addEventListener('mousemove',movementHandler)
+
+
+    </script>
+
+</body>
+</html>

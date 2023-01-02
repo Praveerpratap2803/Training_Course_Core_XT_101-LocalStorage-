@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <noscript>Please enable JS to use this page to the full extent</noscript>
+        
+        <!-- inline event handling (click is the event name, onclick is an HTML attribute) -->
+        <button id="sample-button" onclick="console.log( 'I was clicked (1)' )">Click me</button>
+
+        <!-- use script tag and write code within -->
+        <script>
+            const sampleButton = document.querySelector( '#sample-button' );;
+            function foo(){
+                return "hello";
+            }
+            // Hey browser! When the sampleButton is 'click'ed, please execute the function passed.
+            sampleButton.addEventListener(
+                'click', // 1st argument
+                function() { // 2nd argument is a function!
+                    console.log( 'I was clicked (2)' );
+                    const result = foo();
+                    alert(result);
+                    
+                }
+            );
+        </script>
+
+        <!-- external js -->
+        <script src="js/01.js"></script>
+    </body>
+</html>

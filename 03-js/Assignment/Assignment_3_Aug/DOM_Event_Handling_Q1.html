@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cssPara5{
+            padding: 10px;
+            border: 3px solid black;
+            color: olive;
+        }
+    </style>
+</head>
+<body>
+    <p id="para-1" >
+    </p>
+    <p id="para-2">
+    </p>
+    <p id="para-3">
+    </p>
+<script>
+    const newPara=document.createElement('p')
+    const para1 = document.querySelector('#para-1')
+    newPara.id="para-4"
+    document.body.insertBefore(newPara,para1);
+    console.log(document.body)
+
+    const newText = document.createTextNode('my name is praveer')//data - A string containing the data to be put in the text node.
+
+    newPara.appendChild(newText);
+    console.log(document.querySelectorAll('#para-4'))
+    const para4=document.querySelector('#para-4')
+    console.log(para4.textContent)
+    document.createElement('p')
+
+    const newPara1=document.createElement('p')
+    document.body.appendChild(newPara1)
+    newPara1.id='para-5'
+    const newText1 = document.createTextNode('I am Praveer')
+    newPara1.appendChild(newText1)
+    console.log(document.body)
+
+    const para2= document.querySelector('#para-2')
+    para2.innerHTML=`
+    <h2>html format</h2>
+    <div>Name</div>
+    `
+    const newPara2 = document.createElement('span')
+    const newPara2_1 = document.createElement('span')
+    const newText2 = document.createTextNode('related to .replaceChild')
+    newPara2.appendChild(newText2)
+    document.body.replaceChild(newPara2,para2)
+    newPara2.id='para-6'
+    console.log(newPara2.getAttribute('id'))
+    newPara2.setAttribute('id','changed-id')
+    console.log(newPara2.getAttribute('id'))
+    
+    console.log(newPara2.getAttribute('name'))
+    newPara2.setAttribute('name','changed-name')
+    console.log(newPara2.getAttribute('name'))
+
+    const para3 = document.querySelector('#para-3')
+    para3.textContent = "abc"
+    para3.style.backgroundColor = 'crimson';
+    para3.style.color='white'
+    
+    const para5 = document.querySelector('#para-5')
+    para5.classList.add('cssPara5')
+    
+
+
+    console.log(document.body)
+</script>
+</body>
+</html>
+

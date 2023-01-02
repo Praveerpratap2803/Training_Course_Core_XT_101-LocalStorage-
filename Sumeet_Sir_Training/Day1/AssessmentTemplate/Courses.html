@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width: 20%;
+    }
+    .course{
+      display: inline-block;
+    }
+  </style>
+  <script src="Courses.js"></script>
+</head>
+<body>
+    <template id="pythonCourse">
+      
+      <span class="course">
+        <div><slot name="image">Give Image</slot></div>
+        <div><slot name="heading">Enter heading</slot></div>
+        <div><slot name="trainerName">Enter Trainer Name</slot></div>
+        <div><slot name="rating">Enter Rating</slot></div>
+        <div><slot name="price">Enter Price</slot></div>
+      </span>
+
+    </template>
+
+    <python-element>
+      <div slot="image"><img src="https://solutionsreview.com/business-intelligence/files/2021/08/Python-Courses-on-Udemy-1.jpg" alt="Course1 Image"></div>
+      <div slot="heading">Heading 1</div>
+      <div slot="trainerName">Trainer Name 1</div>
+      <div slot="rating">Rating 1</div>
+      <div slot="price">Price 1</div>
+    </python-element>
+    <python-element>
+      <div slot="image"><img src="https://solutionsreview.com/business-intelligence/files/2021/08/Python-Courses-on-Udemy-1.jpg" alt="Course1 Image"></div>
+      <div slot="heading">Heading 2</div>
+      <div slot="trainerName">Trainer Name 2</div>
+      <div slot="rating">Rating 2</div>
+      <div slot="price">Price 2</div>
+    </python-element>
+    <python-element>
+      <div slot="image"><img src="https://solutionsreview.com/business-intelligence/files/2021/08/Python-Courses-on-Udemy-1.jpg" alt="Course1 Image"></div>
+      <div slot="heading">Heading 3</div>
+      <div slot="trainerName">Trainer Name 3</div>
+      <div slot="rating">Rating 3</div>
+      <div slot="price">Price 3</div>
+    </python-element>
+    <python-element>
+      <div slot="image"><img src="https://solutionsreview.com/business-intelligence/files/2021/08/Python-Courses-on-Udemy-1.jpg" alt="Course1 Image"></div>
+      <div slot="heading">Heading 4</div>
+      <div slot="trainerName">Trainer Name 4</div>
+      <div slot="rating">Rating 4</div>
+      <div slot="price">Price 4</div>
+    </python-element>
+
+
+
+</body>
+</html>
+
+

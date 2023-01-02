@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol class="people">
+        {{#each allPerson}}
+        <div class="person">
+            
+                <img src="{{avatar_url}}"/>
+            
+            <div>
+                <li>
+                    login = {{login}}
+                </li>
+                <li>
+                    {{id}}
+                </li>
+                <li>
+                    node_id={{node_id}}
+                </li>
+                
+                <li>
+                    github URL = {{url}}
+                </li>
+                <li>
+                    html_url = {{html_url}}
+                </li>
+                <li>
+                    type = {{type}}
+                </li>
+            </div>
+        </div>
+        {{/each}}
+    </ol>
+
+
+</body>
+</html>
+
+
+

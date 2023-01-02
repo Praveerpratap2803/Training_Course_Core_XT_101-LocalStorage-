@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.js"></script>
+  </head>
+  <body>
+    <div id="foodData"></div>
+
+    <script id="dish-template" type="text/x-handlebars-template">
+      <h3>
+        Fav food dishes !
+      </h3>
+
+      <ol>
+        {{#each dishes}}
+          <li>
+            {{dishname}}
+          </li>
+        {{/each}}
+      </ol>
+    </script>
+
+    <script>
+      var dishInfo = document.querySelector("#dish-template").innerHTML;
+      var template = Handlebars.compile(dishInfo);
+      var foodData = template({
+        dishes: [
+          { dishname: "Pav Bhaji" },
+          { dishname: "Misal Pav" },
+          { dishname: "Masala Dosa" },
+        ],
+      });
+
+      document.querySelector("#foodData").innerHTML += foodData;
+    </script>
+  </body>
+</html>

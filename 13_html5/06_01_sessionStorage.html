@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>localStorage</title>
+    </head>
+    <body>
+        <a href="./06_02_sessionStorage.html">Page 2</a>
+
+        <label>
+            <input type="checkbox" id="theme" /> Use dark theme
+        </label>
+
+        <script>
+
+            document.querySelector( '#theme' ).addEventListener( 'input', function() {
+                if( this.checked ) {
+                    sessionStorage.setItem( 'theme', 'dark' );
+                    document.body.style.backgroundColor = '#333';
+                    document.body.style.color = 'ivory';
+                } else {
+                    sessionStorage.setItem( 'theme', 'light' );
+                    document.body.style.backgroundColor = 'ivory';
+                    document.body.style.color = '#333';
+                }
+            });
+
+            window.addEventListener( 'load', function() {
+                const theme = sessionStorage.getItem( 'theme' );
+                
+                if( theme === 'dark' ) {
+                    document.body.style.backgroundColor = '#333';
+                    document.body.style.color = 'ivory';
+                } else {
+                    document.body.style.backgroundColor = 'ivory';
+                    document.body.style.color = '#333';
+                }
+            });
+
+        </script>
+    </body>
+</html>
+
+
+

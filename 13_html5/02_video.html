@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <audio src="./audio/horse.mp3" controls></audio> -->
+    <!-- Add loop for looping -->
+    <video controls id="audio-player">
+        <source src="./video/mov_bbb.mp4" type="video/mpeg">
+        <source src="./video/mov_bbb.ogg" type="video/ogg">
+    </video>
+
+    <button id="btn-toggle">Play / Pause</button>
+
+    <script>
+        const videoPlayer = document.querySelector('#audio-player')
+        const toggleBtn = document.querySelector( '#btn-toggle' );
+        
+        const isVideoPlaying = video => !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+        
+        toggleBtn.addEventListener( 'click', function() {
+                videoPlayer.volume = 1; // full volume (a number between 0 - 1)
+                
+                if( isVideoPlaying( videoPlayer ) ) {
+                    videoPlayer.pause();
+                } else {
+                    videoPlayer.play();
+                }
+            });
+
+    </script>
+
+
+
+</body>
+</html>

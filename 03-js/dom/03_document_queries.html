@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <main>
+            <!-- Section 1 follows -->
+            <section>
+                <h2>Section 1</h2>
+                <p id="introduction-para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Amet at tempore beatae in repellendus nobis accusantium
+                    magni maiores sequi soluta quidem aspernatur ratione nam,
+                    nemo dicta delectus adipisci? Repellendus, nobis.
+                </p>
+                <p id="introduction-para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Amet at tempore beatae in repellendus nobis accusantium
+                    magni maiores sequi soluta quidem aspernatur ratione nam,
+                    nemo dicta delectus adipisci? Repellendus, nobis.
+                </p>
+            </section>
+
+            <!-- Section 2 follows -->
+            <section class="conclusion">
+                <h2>Section 2</h2>
+                <p id="conclusion-para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Amet at tempore beatae in repellendus nobis accusantium
+                    magni maiores sequi soluta quidem aspernatur ratione nam,
+                    nemo dicta delectus adipisci? Repellendus, nobis.
+                </p>
+            </section>
+        </main>
+
+        <script>
+            const section1 = document.querySelector('section');
+            console.log(section1);
+            const conclusion = document.querySelector('section.conclusion');
+            console.log(conclusion);
+
+            const introPara = document.querySelector('#introduction-para');
+            console.log(introPara);
+            const allSection = document.querySelectorAll('#introduction-para');
+            console.log(allSection);
+            console.log(allSection[0]);
+            console.log(allSection[1]);
+            console.log(allSection.length);
+
+            const conclusionHeading = conclusion.querySelector('h2');
+            console.log(conclusionHeading);
+
+            // getElementById() is present only on the document node
+            // console.log(conclusion.getElementById('conclusion-para'));
+            console.log(document.getElementById('conclusion-para'));
+        </script>
+    </body>
+</html>

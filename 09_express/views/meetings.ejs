@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+    <style>
+        .meeting {
+            padding: 1em;
+            border: 1px solid #333;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1><%= title%></h1>
+        <hr/>
+        <% if(meetings !==null){%>
+            <div>
+                Number of meetings = <%= meetings.length%>
+            </div>
+            <% meetings.forEach(meeting =>{%>
+                <div class="meeting">
+                    <h2><%= meeting.name %></h2>
+                    <hr />
+                    <div><%= meeting.description %></div>
+                </div>
+            <% }); %>
+        <%}%>
+        <% if(error !==null){%>
+            <div>
+                <%= error.message%>
+            </div>
+        <%}%>
+
+    </main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

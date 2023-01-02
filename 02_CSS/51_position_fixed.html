@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Theming</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .dialog {
+                position:fixed;
+                top: calc(50vh-120px);
+                left: 25%;
+                background-color: rgba( 220, 220, 220, 0.9 );
+                width: 50%; /* 50% width of parent remains */
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 10px;
+                /* x-offset y-offset blur spread color, more shadows... */
+                box-shadow: 0px 0px 3px 3px rgba( 128, 128, 128, 0.5 );
+                *margin-left: 25%; /* 50% / 2 */
+                *margin-right: 25%; /* 50% / 2 */
+                margin: 0 auto; /* browser will distribute remaining width equally between left and right */
+            }
+
+            .dialog--info {
+                border-color: blue;
+            }
+
+            .dialog-error {
+                border-color: crimson;
+            }
+
+            /* DRY -> Dont Repeat Yourself */
+            .dialog__header,
+            .dialog__body {
+                padding: 1em;
+            }
+
+            /* your header class code will not affect other headers in the app */
+            /* .dialog .header {
+            } */
+            .dialog__header {
+                position: relative;
+                border-top-left-radius: 9px;
+                border-top-right-radius: 9px;
+            }
+
+            .dialog--info .dialog__header {
+                background-color: blue;
+            }
+
+            .dialog--error .dialog__header {
+                background-color: crimson;
+            }
+
+            /* ::after, ::before add a "pseudo element child" */
+            .dialog__close::after {
+                /* absolute position is by default with respect to the document. Element is positioned wrt nearest non-static position ancestor. */
+                position: absolute; /* NOT normal flow of rendering */
+                bottom: 20px;
+                right: 20px;
+                content: "\00D7";
+                font-size: 1.5em;
+                color: white;
+            }
+
+            .dialog__title {
+                margin: 0;
+                text-align: center;
+                color: ivory;
+            }
+
+            .dialog-box-demo {
+                margin: 3em 0;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            block__element--modifier (BEM) syntax for naming classes of a widget ("block")
+        -->
+        <!--
+            ARIA role
+        -->
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, iusto itaque. Ab non ratione exercitationem placeat repudiandae earum error molestias obcaecati incidunt doloribus, voluptates nostrum sint aperiam pariatur voluptatibus, adipisci laboriosam? Iste possimus minima, eum illum nulla molestiae ipsum accusantium mollitia veniam dignissimos, nisi assumenda esse neque cumque quam beatae, nesciunt saepe necessitatibus exercitationem est et qui porro! Dolor ratione soluta rem molestias neque deserunt minus harum voluptate deleniti dolorem omnis placeat itaque voluptatibus, quod cupiditate suscipit fuga adipisci nobis dolores officia quis modi? Dolorem voluptates, architecto doloremque corporis officia accusantium tempore exercitationem ad quos labore saepe amet alias pariatur?
+        <div class="dialog-box-demo">
+            <div
+                class="dialog dialog--info"
+                role="dialog"
+                aria-labelledby="login-dialog-title"
+                aria-describedby="login-dialog-content"
+            >
+                <!-- block -->
+                <div class="dialog__header">
+                    <!-- element -->
+                    <h2 class="dialog__title" id="login-dialog-title">Login</h2>
+                    <span class="dialog__close"></span>
+                </div>
+                <div class="dialog__body" id="login-dialog-content">
+                    <!-- element -->
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                    harum debitis necessitatibus quam dolores? Quibusdam
+                    commodi, rerum aspernatur exercitationem quo deleniti optio
+                    ducimus doloribus qui ipsam harum amet aliquam non.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos enim nisi et dicta. Assumenda, ipsum maiores ex neque reiciendis dolore est, aliquam omnis harum commodi laborum porro quaerat aperiam exercitationem!
+
+                </div>
+            </div>
+        </div>
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima cum ratione adipisci totam rem ducimus ea in provident, deleniti corrupti, obcaecati inventore quod quae impedit explicabo sunt a! Laudantium maxime accusamus quisquam voluptas repudiandae expedita ut odio quo, unde a, provident vero corrupti cupiditate dolorem mollitia perspiciatis nobis maiores praesentium architecto nihil excepturi culpa deserunt pariatur. Aperiam quisquam culpa, impedit amet modi laudantium. Enim earum minima tempora libero soluta iste at sint sequi perferendis odio cumque perspiciatis placeat saepe dolore ad fugit beatae veritatis eius eum eligendi amet, voluptatem deleniti? Obcaecati ut at placeat eum nostrum delectus reprehenderit maiores quod minus, nisi modi perspiciatis nam voluptatibus nihil iusto veritatis. Officiis mollitia omnis, autem vitae voluptatem doloribus iusto cupiditate optio dignissimos. Cumque ex numquam ad recusandae. Distinctio nobis itaque inventore sapiente tempora molestias incidunt id debitis placeat facere nesciunt quas consequuntur quod, temporibus, fugit earum laboriosam? Earum voluptatum molestias rerum impedit aut, quas amet veritatis recusandae ullam sunt tempore ipsa commodi fugit, est eligendi at repudiandae fuga. Tempore dignissimos vero hic, explicabo quod architecto quos nulla quidem enim eaque maxime nisi in facilis ducimus, dolorem doloribus ut a non? Explicabo consectetur similique, quae adipisci quam eius quas eos commodi aspernatur? Facilis impedit minus blanditiis earum hic sint reprehenderit eveniet ex eaque nulla neque nisi, iste voluptates aliquam? Facilis adipisci perspiciatis hic sunt doloremque praesentium, animi ratione ut libero ad eum, ipsam laboriosam. Beatae, impedit? Laboriosam aliquam molestiae officia exercitationem natus corporis cumque nam iusto consectetur inventore expedita quo et sint, in nobis quisquam dolorum sequi odit excepturi magni minus eveniet vel nesciunt repellendus. Excepturi, ut corporis tempore corrupti atque dignissimos distinctio inventore voluptatem porro aperiam veniam? Ea ad vero saepe rem labore beatae numquam magni odit, exercitationem sed, nam nemo quae esse voluptatum? Porro voluptates nobis ipsum perspiciatis tempora quaerat inventore atque qui fuga numquam. Id reiciendis quod, perspiciatis, omnis earum aperiam porro, ipsa fuga molestiae modi delectus. Ullam, maiores aut sapiente culpa, reprehenderit commodi dolorem ex, aperiam soluta tempora libero. Aut, illo iusto eos neque, voluptas magnam temporibus dolore, ad magni sunt alias? Nemo ipsa aspernatur necessitatibus sed eligendi eum architecto et mollitia quibusdam, modi explicabo incidunt a aliquid exercitationem nihil adipisci autem minima facilis temporibus ex nesciunt. Libero perspiciatis tempore totam, accusamus vel nemo magnam at numquam voluptatem ea quis molestias magni quaerat! Possimus, ullam, nisi sapiente delectus at totam quam facilis id quidem odio ab a dolore aperiam expedita perferendis? Iure quidem sed incidunt maiores est qui corrupti vero repudiandae expedita aspernatur molestias in minima necessitatibus, impedit possimus. Eum ullam atque, nostrum aspernatur, nam pariatur, tempore rem inventore repellat cupiditate sequi. Vel tenetur mollitia praesentium eveniet sed, quos optio ullam excepturi voluptate laudantium culpa laborum explicabo molestias nobis, quasi a consequuntur in aspernatur cum officiis? Architecto, necessitatibus nemo odio eum nam sunt harum quis incidunt enim atque non, quae officia repellendus. Quaerat animi recusandae quis dolorum commodi natus rerum repellat voluptatum cupiditate et sit magni vitae nihil, possimus necessitatibus facilis ipsam. Atque voluptatum quod eum debitis consequuntur? Veniam.
+    </body>
+</html>

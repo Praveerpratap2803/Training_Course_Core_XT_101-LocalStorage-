@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Use Memoization
+      //   var cache = {};
+      //   function Square(x) {
+      //     if (cache[x] != null) {
+      //       console.log("Returning from cache !");
+      //       return cache[x];
+      //     }
+      //     let result = 0;
+      //     for (let i = 1; i <= x; i++) {
+      //       for (let j = 1; j <= x; j++) {
+      //         result += 1;
+      //       }
+      //     }
+      //     cache[x] = result;
+      //     return result;
+      //   }
+
+      //   console.log(Square(10));
+
+      //   console.log(Square(40000));
+      //   console.log(Square(40000));
+
+      // Memoization using Higher Order Function
+
+      function Square(x) {
+        let result = 0;
+        for (let i = 1; i <= x; i++) {
+          for (let j = 1; j <= x; j++) {
+            result += 1;
+          }
+        }
+
+        return result;
+      }
+
+      function Memoizer(func) {
+        var cache = {};
+        return function (x) {
+          if (cache[x] == undefined) {
+            cache[x] = func(x);
+          }
+          return cache[x];
+        };
+      }
+
+      let memoizedSquare = Memoizer(Square);
+      console.log(memoizedSquare(10));
+      console.log(memoizedSquare(10));
+      console.log(memoizedSquare(40000));
+      console.log(memoizedSquare(40000));
+    </script>
+  </head>
+  <body></body>
+</html>
+
+
+
+
+
+
+
+
+

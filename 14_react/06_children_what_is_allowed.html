@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .message {
+            padding: 0.5em;
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+        
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+    <script type="text/babel">
+            /**
+             * What can go in {} when setting up CHILDREN of a React element in JSX?
+             * number, boolean, string, null, undefined
+             * other React elements (is a special object)
+             * array of any of the above
+             * 
+             * IMPORTANT NOTE: Objects cannot appear as React element
+             */
+        const users = [
+            'John Doe',
+            'Jane Doe',
+            'Mark Smith'
+        ]
+
+        const john = {
+            name:'John',
+            age:32
+        }
+        const userEl = <div>{john}</div>
+        const userNameEl = <div>{john.name}</div>
+        const userAgeEl = <div>{john.age}</div>
+
+        const userDivs =[
+            <div className ='message'>{users[0]}</div>,
+            <div className ='message'>{users[1]}</div>,
+            <div className ='message'>{users[2]}</div>
+        ];
+
+        const listOfUsers = <div>{userDivs}</div>
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        //root.render(userEl)//error
+        //root.render(userNameEl);
+        //root.render(userAgeEl);
+        //root.render(userNameEl);
+        root.render(userDivs)
+
+    </script>
+</body>
+</html>

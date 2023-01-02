@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Units</title>
+        <style>
+            /* 16px is the size for html element*/
+            /* relative (more preferred), absolute units */
+
+            section {
+                font-size: 2em; /* 2 * 16px = 32px */
+            }
+
+            p {
+                /* 1em is the inherited value of font-size (parent's value) - a RELATIVE unit */
+                font-size: 2em; /* 2 * 32px = 64px */
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            Within section: Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates repellendus veniam. Mollitia, nihil quaerat? Blanditiis, ut nostrum sapiente cumque tenetur quod saepe, officiis sint dolore ipsa, cupiditate velit rem?
+
+            <p>
+                Within section para: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque modi alias exercitationem explicabo? Eveniet cumque debitis, fugit nobis excepturi porro fuga minus ea repellat, officia numquam maxime vitae rem quos.
+            </p>
+        </section>
+    </body>
+</html>

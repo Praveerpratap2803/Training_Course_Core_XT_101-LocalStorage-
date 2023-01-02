@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .addedButton button{
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="btn1">1</button>
+        <button id="btn2">2</button>
+        <button id="btn3">3</button>
+        <span class="addedButton"></span>
+        <button id="add">Add</button>
+    </div>
+
+
+    <script>
+        let number=4;
+        let container = document.querySelector('#')
+        let button1=document.querySelector('#btn1')
+        let button2=document.querySelector('#btn2')
+        let button3=document.querySelector('#btn3')
+        let buttonAdd = document.querySelector('#add')
+        let addedButton = document.querySelector(".addedButton")
+        button1.addEventListener('click',function(event){
+            alert("You Clicked on Button 1")
+        })
+        button2.addEventListener('click',function(event){
+            alert("You Clicked on Button 2")
+        })
+        button3.addEventListener('click',function(event){
+            alert("You Clicked on Button 3")
+        })
+        buttonAdd.addEventListener('click',function(){
+            console.log("Clicked on Add Button")
+            
+            let button4=document.createElement("button")
+            //button4.innerText=`4`;
+            button4.innerText=`${number}`;
+            addedButton.appendChild(button4)
+            button4.addEventListener('click',function(){
+            alert(`You Clicked on Button ${number-1}`)
+            })
+            number++;
+
+        })
+        
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

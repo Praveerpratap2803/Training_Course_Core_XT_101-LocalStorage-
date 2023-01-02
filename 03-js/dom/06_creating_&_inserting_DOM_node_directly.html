@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Creating and Inserting DOM nodes directly</title>
+        <style>
+            .alert {
+                padding: 0.5em 1em;
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- innerHTML is very convenient when HTML elements need to be added dynamically. But is unsafe when content is user-generated. Then we can go in for these methods. -->
+        <!-- Create element, text element, add attributes, insert before, cloning nodes, removing nodes -->
+
+        <div class="alert" id="alert-1">Some initial content</div>
+
+        <script>
+            const alert = document.querySelector('#alert-1');
+
+            setTimeout(function () {
+                const divEl = document.createElement('div');
+                divEl.textContent = 'The data was saved';
+                const headingEl = document.createElement('h2');
+                divEl.textContent = 'Success';
+
+                console.log(alert.childNodes);
+
+                alert.childNodes[0].remove();
+
+                alert.appendChild(headingEl);
+                alert.appendChild(divEl);
+
+                const hrE1 = document.createElement('hr');
+                alert.insertBefore(hrE1, divEl);
+            }, 3000);
+        </script>
+    </body>
+</html>

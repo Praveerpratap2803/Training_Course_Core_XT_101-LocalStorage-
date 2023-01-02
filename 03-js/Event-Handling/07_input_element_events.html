@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Input and form events</title>
+        <style>
+            body {
+                width: 80%;
+                margin: 1em auto;
+                background-color: #333;
+                color: ivory;
+                font-size: 1.5em;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 0.5em;
+                margin: 0.5em 0;
+            }
+
+            .message {
+                font-size: 0.8em;
+            }
+
+            .message-warn {
+                color: gold;
+            }
+            
+            .message-error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- live server does not support POST request. So we use GET. Ideally we must use POST -->
+        <form action="success.html" method="get" id="registration-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div>
+                    <input type="text" id="username" name="username" placeholder="username" value="administration" />
+                </div>
+                <span class="message message-error"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div>
+                    <input type="password" id="password" name="password" />
+                </div>
+                <span class="message message-error"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <div>
+                    <input type="password" id="confirm-password" name="confirm-password" />
+                </div>
+                <span class="message message-error"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="base-location">Base Location</label>
+                <div>
+                    <select id="base-location" name="base-location">
+                        <option value="">-- Select your base location --</option>
+                        <option value="BLR" selected>Bengaluru</option>
+                        <option value="GRG">Gurugram</option>
+                        <option value="MUM">Mumbai</option>
+                        <option value="ND">Noida</option>
+                    </select>
+                </div>
+                <span class="message message-error"></span>
+            </div>
+            <button type="reset">Reset</button>
+            <button type="submit">Register</button>
+        </form>
+
+        <script>
+            // better to have selected based on a common class
+            const usernameEl = document.querySelector( '#username' );
+            const passwordEl = document.querySelector( '#password' );
+            const confirmPasswordEl = document.querySelector( '#confirm-password' );
+            const baseLocationEl = document.querySelector( '#base-location' );
+
+            function validateUsername() {
+                // for event listeners, this -> element where event happens (usernameEl)
+                console.log( 'this = ', this );
+
+                const username = usernameEl.value.trim();
+                const formGroupEl = usernameEl.closest( '.form-group' );
+                const messageEl = formGroupEl.querySelector( '.message' );
+
+                let error = '';
+
+                if( username.length < 8 ) {
+                    error += '<div>Username must be at least 8 characters long</div>';
+                }
+
+                messageEl.innerHTML = error;
+
+                return error === ''; // true for no error / false if input has errors
+            }
+
+            function validatePassword() {
+                const password = passwordEl.value.trim();
+                const formGroupEl = passwordEl.closest( '.form-group' );
+                const messageEl = formGroupEl.querySelector( '.message' );
+
+                let error = '';
+
+                // if( password.length === 0 ) {
+                if( !password ) { // empty string is considered as false
+                    error += '<div>Password cannot be empty</div>';
+                }
+
+                // uppercase
+                const uppercasePat = /[A-Z]/;
+                if( !uppercasePat.test( password ) ) {
+                    error += '<div>Password must have an uppercase character</div>';
+                }
+
+                // lowercase
+                const lowercasePat = /[a-z]/;
+                if( !lowercasePat.test( password ) ) {
+                    error += '<div>Password must have a lowercase character</div>';
+                }
+                /* digit */
+                const digit = /[0-9]/
+                if( !digit.test( password ) ) {
+                    error += '<div>Password must have a digit</div>';
+                }
+                /* special characters */
+                const specialChar = /[!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/
+                if( !specialChar.test( password ) ) {
+                    error += '<div>Password must have a Special Character</div>';
+                }
+                
+
+                messageEl.innerHTML = error;
+
+                return error === '';
+            }
+
+            function validateConfirmPassword() {
+                const password = passwordEl.value.trim();
+                const confirmPassword = confirmPasswordEl.value.trim();
+                const formGroupEl = confirmPasswordEl.closest( '.form-group' );
+                const messageEl = formGroupEl.querySelector( '.message' );
+
+                let error = '';
+
+                if( password !== confirmPassword ) {
+                    error += 'Password and confirm password must match';
+                }
+
+                messageEl.innerHTML = error;
+
+                return error === '';
+            }
+
+            // fires when we move away from an input
+            usernameEl.addEventListener( 'focus', function() {
+                console.log( 'start typing within username field' );
+            });
+
+            usernameEl.addEventListener( 'blur', validateUsername );
+            usernameEl.addEventListener( 'input', validateUsername );
+
+            passwordEl.addEventListener( 'blur', validatePassword );
+            passwordEl.addEventListener( 'input', validatePassword );
+
+            passwordEl.addEventListener( 'blur', validateConfirmPassword );
+            passwordEl.addEventListener( 'input', validateConfirmPassword );
+
+            confirmPasswordEl.addEventListener( 'blur', validateConfirmPassword );
+            confirmPasswordEl.addEventListener( 'input', validateConfirmPassword );
+
+            function validate() {
+                let isValid = true;
+
+                isValid = validateUsername() && isValid;
+                isValid = validatePassword() && isValid;
+                isValid = validateConfirmPassword() && isValid;
+
+                return isValid;
+            }
+
+            const form = document.querySelector( '#registration-form' );
+
+            form.addEventListener( 'submit', function( event ) {
+                event.preventDefault();
+
+                if( validate() ) { // if all fields are valid
+                    //this.submit();
+                    this.reset();
+                }
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+

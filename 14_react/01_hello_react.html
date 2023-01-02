@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello React</title>
+        <style>
+            .message {
+                padding: 0.5em;
+                background-color: goldenrod;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            <div id="introduction" class="message">
+                Hello <strong>React</strong>
+            </div>
+        -->
+        <div id="root"></div>
+
+        <!-- React core -->
+        <!-- We define the UI, and the components using this (architect - to "design" the UI) -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+        <!-- React DOM -->
+        <!-- Takes the design and build the UI (does the DOM manipulations) -->
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+        <script>
+            const strongEl = React.createElement(
+                'strong',
+                {},
+                'React'
+            );
+
+            // this creates a "React element" (a "React element" defines a UI)
+            const el = React.createElement(
+                'div',
+                { // (attributes)
+                    id: "introduction",
+                    className: "message"
+                    // children:[
+                    //     "Hello",
+                    //     strongEl
+                    // ]
+                },
+                'Hello ',
+                strongEl
+            );
+
+            console.log( el );
+            console.log( el.type ); 
+            console.log( el.props ); 
+
+            const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
+            root.render( el );
+        </script>
+    </body>
+</html>
+
+

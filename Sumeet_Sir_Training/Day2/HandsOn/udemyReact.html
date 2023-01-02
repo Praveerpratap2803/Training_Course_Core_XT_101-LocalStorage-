@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"/>
+    <style>
+        img{
+            width: 30%;
+        }
+        .seller{
+                padding: 2px;
+                border: 2px solid yellow;
+                background-color: yellow;
+                font-weight: bold;
+            }
+    </style>
+    <script src="udemyReact.js"></script>
+</head>
+<body>
+    <template id="course-template">
+        <style>
+            img{
+                width: 30%;
+            }
+            .course{
+                display: flex;
+                justify-content: space-around;
+            }
+            .summary{
+                font-size: 16px;
+            }
+            .trainer,.lecture,.totalTime{
+                font-size: smaller;
+            }
+            .rating{
+                color: red;
+            }
+            .course{
+                margin: 20px;
+                padding: 5px;
+                border: 2px solid black;
+            }
+            
+        </style>
+        <div class="course">
+            <span>
+                <slot name="courseImage"><img src="https://miro.medium.com/max/1400/1*X5QPANNO8jaYPirwfpF7VQ.png"/>Course Image</slot>
+            </span>
+            <div><strong><slot name="courseName">Enter Course Name</slot></strong><br/>
+                <slot name="courseSummary" class="summary">Enter Course Summary</slot>
+                <div><slot name="courseTrainer" class="trainer">Enter Course Trainer</slot></div>
+                <div><slot name="courseRating" class="rating">Enter Course Rating</slot></div>
+                <slot name="courseTotalTime" class="totalTime">Enter Total Time Taken by Course</slot>
+                <slot name="courseLectures" class="lecture">Enter Total number of Lectures</slot>
+                <div><span  class="seller"><slot name="bestSeller"></slot></span></div>
+            </div>
+            <div>
+                <slot name="coursePrice">Enter Course Price</slot>
+            </div>
+        </div>
+        
+    </template>
+    <react-course>
+        <img slot="courseImage" src="https://miro.medium.com/max/1400/1*X5QPANNO8jaYPirwfpF7VQ.png"/>
+        <span slot="courseName">React - The Complete Guide (incl Hooks, React Router, Redux)</span>
+        <span slot="courseSummary">Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing, Animations, Next.js and way more!</span>
+        <span slot="courseTrainer">Academind by Maximilian Schwarzmüller, Maximilian Schwarzmüller</span>
+        <span slot="courseRating">4.6 <i class="fa-solid fa-star"></i>(161981)</span>
+        <span slot="courseTotalTime">49.5 total hours</span>
+        <span slot="courseLectures">495 lectures</span>
+        <span slot="coursePrice">Rs 649</span>
+        
+
+    </react-course>
+    <react-course>
+        <img slot="courseImage" src="https://miro.medium.com/max/1400/1*X5QPANNO8jaYPirwfpF7VQ.png"/>
+        <span slot="courseName">React - The Complete Guide (incl Hooks, React Router, Redux)</span>
+        <span slot="courseSummary">Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing, Animations, Next.js and way more!</span>
+        <span slot="courseTrainer">Academind by Maximilian Schwarzmüller, Maximilian Schwarzmüller</span>
+        <span slot="courseRating">4.6 (161981)</span>
+        <span slot="courseTotalTime">49.5 total hours</span>
+        <span slot="courseLectures">495 lectures</span>
+        <span slot="bestSeller" class="seller">Bestseller</span>
+        <span slot="coursePrice">Rs 649</span>
+        
+
+    </react-course>
+    <react-course>
+        <img slot="courseImage" src="https://miro.medium.com/max/1400/1*X5QPANNO8jaYPirwfpF7VQ.png"/>
+        <span slot="courseName">React - The Complete Guide (incl Hooks, React Router, Redux)</span>
+        <span slot="courseSummary">Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing, Animations, Next.js and way more!</span>
+        <span slot="courseTrainer">Academind by Maximilian Schwarzmüller, Maximilian Schwarzmüller</span>
+        <span slot="courseRating">4.6 (161981)</span>
+        <span slot="courseTotalTime">49.5 total hours</span>
+        <span slot="courseLectures">495 lectures</span>
+        <span slot="coursePrice">Rs 649</span>
+        
+
+    </react-course>
+    
+    <!-- React - The Complete Guide (incl Hooks, React Router, Redux)
+    React - The Complete Guide (incl Hooks, React Router, Redux)
+    Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing, Animations, Next.js and way more! -->
+</body>
+</html>
+
+
+
+

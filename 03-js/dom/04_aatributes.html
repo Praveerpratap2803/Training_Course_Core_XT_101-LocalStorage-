@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <main>
+            <!-- Section 1 follows -->
+            <section title="Introduction to DOM" data-topic="DOM">
+                <h2>Section 1</h2>
+                <p id="introduction-para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Amet at tempore beatae in repellendus nobis accusantium
+                    magni maiores sequi soluta quidem aspernatur ratione nam,
+                    nemo dicta delectus adipisci? Repellendus, nobis.
+                </p>
+            </section>
+        </main>
+
+        <script>
+            const section1 = document.querySelector('section');
+            console.log(section1.title); //reading
+
+            console.log(section1.getAttribute('title'));
+            console.log(section1.getAttribute('data-topic'));
+
+            setTimeout(function () {
+                section1.title = 'Introduction session on DOM';
+                section1.setAttribute('data-topic', 'Documnet Object Model');
+            }, 3000);
+        </script>
+    </body>
+</html>

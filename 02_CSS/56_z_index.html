@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>z-index</title>
+        <style>
+            #el-1, #el-3 {
+                position: fixed;
+                padding: 2em;
+                font-size: 1.5em;
+                line-height: 1.5;
+            }
+
+            #el-1 {
+                top: 100px;
+                left: 10px;
+                right: 10px;
+                background-color: rgba( 128, 0, 0, 0.8 );
+                z-index: 3;
+            }
+            
+            #el-3 {
+                top: 350px;
+                left: 10px;
+                right: 10px;
+                background-color: rgba( 0, 0, 128, 0.8 );
+                z-index: 2;
+            }
+
+            #el-2 {
+                background-color: rgba( 0, 128, 0, 0.8 );
+                z-index: 30;
+            }
+            
+
+
+        </style>
+    </head>
+    <body>
+        <div id="el-1">
+            <h2>Element 1</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum error sed autem veritatis expedita repudiandae, unde quos commodi temporibus pariatur numquam quisquam iusto? Necessitatibus, ducimus. Natus accusantium tenetur vel nisi.
+
+            <div id="el-2">
+                <h3>Element 2 (within Element 1)</h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, perferendis ipsa expedita esse delectus at earum ipsam quisquam molestiae officia veritatis. Porro aliquam alias ea temporibus, suscipit perspiciatis quae accusantium.
+            </div>
+        </div>
+
+        <div id="el-3">
+            <h2>Element 3</h2>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, ducimus vero libero dignissimos quos eligendi praesentium deleniti dolorem magni! Magnam hic aliquid distinctio, fugit ipsam nostrum saepe vel accusamus quasi.
+        </div>
+        <div id="el-4">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat doloremque dolore quam voluptatem ea sit cum quo corporis cupiditate. Maxime vero similique quod recusandae, illo asperiores non quidem perferendis deleniti.
+
+        </div>
+    </body>
+</html>

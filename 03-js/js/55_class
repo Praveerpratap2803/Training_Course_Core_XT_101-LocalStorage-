@@ -1,0 +1,46 @@
+function celebrateBirthday() {
+    this.age++;
+}
+
+const john = {
+    name: 'John',
+    age: 32,
+    celebrateBirthday: celebrateBirthday
+};
+
+const jane = {
+    name: 'Jane',
+    age: 28,
+    celebrateBirthday: celebrateBirthday
+};
+
+john.celebrateBirthday();
+jane.celebrateBirthday()
+
+console.log( john, jane );
+
+
+class Person {
+    constructor(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    celebrateBirthday(){
+        this.age++;
+    }
+}
+
+
+const pra = new Person('Praveer',19);
+const veer = new Person('Pratap',21)
+
+pra.celebrateBirthday();
+
+console.log(pra)
+console.log(veer)
+
+
+
+
+
+

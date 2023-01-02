@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <main>
+            <!-- Section 1 follows -->
+            <section>
+                <h2>Section 1</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Amet at tempore beatae in repellendus nobis accusantium
+                    magni maiores sequi soluta quidem aspernatur ratione nam,
+                    nemo dicta delectus adipisci? Repellendus, nobis.
+                </p>
+            </section>
+
+            <!-- Section 2 follows -->
+            <section>
+                <h2>Section 2</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Amet at tempore beatae in repellendus nobis accusantium
+                    magni maiores sequi soluta quidem aspernatur ratione nam,
+                    nemo dicta delectus adipisci? Repellendus, nobis.
+                </p>
+            </section>
+        </main>
+        <script>
+            console.dir(document.documentElement);
+            console.dir(document.documentElement.children); //collection of html elements's children
+            console.dir(document.documentElement.children.length);
+
+            console.dir(document.documentElement.children[0]); //head
+            console.dir(document.documentElement.children[1]); //body
+            console.dir(document.documentElement.children[1].children[0]);
+            const mainEl = document.documentElement.children[1].children[0];
+            const sectionEl = mainEl.children[0];
+
+            const sectionE2 = mainEl.children[1];
+            console.dir(sectionEl.nextElementSibling);
+            console.dir(sectionE2.previousElementSibling);
+
+            console.dir(sectionEl.parentNode);
+            console.dir(mainEl.parentNode);
+
+            console.dir(mainEl.nodeName);
+            console.dir(mainEl.children.nodeName); //here we have collection so there is no sense for .nodeName
+            console.dir(mainEl.children[0].nodeName);
+
+            console.log(sectionEl.nodeType); // 1 -> normal HTML element
+            console.log(sectionEl.previousSibling.nodeType); // 3 -> represents a text in the HTML
+            console.log(sectionEl.previousSibling.previousSibling.nodeType); // 8 -> represents a comment in the HTML
+        </script>
+    </body>
+</html>

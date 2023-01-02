@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello React</title>
+        <style>
+            .message {
+                padding: 0.5em 1em;
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: lightgray;
+            }
+
+            .message-info {
+                border: 1px solid navy;
+                background-color: navy;
+                color: white;
+            }
+            
+            .message-error {
+                border: 1px solid red;
+                background-color: crimson;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+            /**
+             * Usage-wise there is no dfference between function and class-based components
+             */
+            // base class shall set up the props objects on the data member called "props"
+            // class React.Component {
+            //     constructor( props ) {
+            //         this.props = props
+            //     }
+            // }
+            class Message extends React.Component {
+                // we can define constructor if need (Default constructor will simply pass the props to the super class)
+                constructor( props ) {
+                    super( props );
+
+                    this.title = this.props.title;
+                    this.subTitle = this.props.subTitle;
+                    this.variant = this.props.variant;
+                }
+                render() {
+                    const {
+                        title,
+                        subTitle,
+                        variant
+                    } = this.props;
+
+                    return (
+                        <React.Fragment>
+                            <div className={`message message-${variant}`} title={title}>
+                                <strong>{title}</strong>
+                                <div>{subTitle}</div>
+                            </div>
+                        </React.Fragment>
+                    );
+                }
+            }
+
+            // we use the SAME way
+            const messageEl = <Message
+                title="Meetings are being fetched"
+                subTitle="Please wait..."
+                variant="info"
+            />
+
+            const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
+            root.render( messageEl );
+        </script>
+    </body>
+</html>

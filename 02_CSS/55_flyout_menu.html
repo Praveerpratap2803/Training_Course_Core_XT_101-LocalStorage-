@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: lightgray;
+        }
+
+        nav {
+            width: 300px;
+            padding: 1.5em;
+            font-size: 2em;
+            background-color: white;
+            transition: transform 1s;
+            transform: translate( -300px );
+        }
+
+        nav li {
+            margin: 0.5em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: initial;
+        }
+
+        nav a:hover {
+            color: crimson;
+        }
+
+        .list-unstyled {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn-menu">Menu</button>
+    <nav>
+        <ol class="list-unstyled">
+            <li><a href="#">Industries</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Solutions</a></li>
+            <li><a href="#">Insights</a></li>
+        </ol>
+    </nav>
+</body>
+<script>
+    const menuBtn = document.querySelector('#btn-menu');
+
+    menuBtn.onclick = function(){
+        const nav = document.querySelector('nav');
+
+        if(nav.classList.contains('open')){
+            nav.style.transform = 'translate(-300px)'
+            nav.classList.remove('open')
+        } else{
+            nav.style.transform = 'translate(0px)';
+            nav.classList.add('open')
+        }
+    }
+</script>
+</html>

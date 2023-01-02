@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>XMLHttpRequest</title>
+        <link rel="stylesheet" href="workshops-list.css">
+    </head>
+    <body>
+        <main>
+            <div>
+                <h1>List of workshops</h1>
+                <hr />
+                <input type="search" class="search" id="search-workshops" />
+                <div class="workshops-list"></div>
+            </div>
+        </main>
+
+        <script>
+
+            let allWorkshops = [];
+
+            const searchEl =  document.querySelector('#search-workshops');
+            searchEl.addEventListener('input',function(event){
+                const search = searchEl.value;
+                const matchedShops = allWorkshops.filter(
+                    function(workshop){
+                        return workshop.name.toLowerCase().includes(search.toLowerCase())
+                    }
+                );
+                showWorkshops(matchedShops);
+            })
+            // pass on workshops to show, and this function will show it on the page
+            function showWorkshops( workshops ) {
+                const workshopsList = document.querySelector( '.workshops-list' );
+                
+                let workshopsListStr = '';
+                
+                workshops.forEach(
+                    function( workshop ) {
+                        // console.log( workshop.name, workshop.category, workshop.location.city );
+
+                        // workshopsListStr = workshopsListStr + `
+                        workshopsListStr += `
+                            <div class="workshop p-3">
+                                <img src="${workshop.imageUrl}" alt="${workshop.name}" class="img-fluid" />
+                                <h2 class="workshop-title">
+                                    ${workshop.name}
+                                </h2>
+                                <div class="workshop-duration">
+                                    ${workshop.startDate} - ${workshop.endDate}
+                                </div>
+                                <div class="workshop-time">
+                                    ${workshop.time}
+                                </div>
+                            </div>
+                        `
+                    }
+                );
+                workshopsList.innerHTML = workshopsListStr;
+            }
+
+            const infoMessage = document.querySelector('.message-info')
+            infoMessage.textContent = 'Loading workshop ... Please wait'
+            // returns a "Promise object"
+            // 2 methods of promise object - then / catch
+            fetch( 'https://workshops-server.herokuapp.com/workshop' )
+                .then(
+                    function( response ) {
+                        return response.json();
+                    }
+                )
+                .then(
+                    function( workshops ) {
+                        allWorkshops = workshops
+                        showWorkshops( workshops );
+                    }
+                )
+                .catch(
+                    function(error){
+                        const errorMessage = document.querySelector('.message-error');
+                        errorMessage.textContent = error.message;
+                    }
+                )
+                .finally(
+                    function(){
+                        infoMessage.textContent = '';
+                    }
+                )
+        </script>
+    </body>
+</html>

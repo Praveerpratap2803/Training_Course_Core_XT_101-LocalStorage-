@@ -1,0 +1,129 @@
+<!-- 4. VIRTUAL DOM, CREATING AND RENDERING AN ELEMENT
+Create a React element that represents a registration form (form with id 'registration-form',
+and action set to '/register'). It should have as children the following elements (in the exact
+same order)
+a. A heading within the form
+b. A label and input element (text) to take username
+c. A label and input element (password) to take password
+d. A label and input element (confirm password) to take password
+e. A submit button
+You may also enclose the label and inputs together within a div for styling purpose (this is
+optional). Render the React element inside the root div. It should look like shown below.
+
+
+Create a login form element that represents a login form (form with id login-form', and
+action set to '/login'). It should have as children the following elements (in the exact same
+order)
+a. A heading within the form
+b. A label and input element (text) to take username
+c. A label and input element (password) to take password
+d. A submit button
+
+
+Provide a 20 second gap after registration form re-renders, and replace registration element
+with login element (use setTimeout() to delay the re-rendering)
+a. Which elements will result in new DOM nodes being created during the re-render?
+b. Which elements will have their DOM nodes modified?
+c. Can you use key to prevent unnecessary creation of any of the DOM nodes? Which
+one? -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .formElements{
+            padding: 2em;
+            margin: 5px;
+            border: 1px solid black;
+            width: 70%;
+            
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .block{
+           
+            display: block;
+        }
+        .element{
+            padding: 1em 0;
+        }
+        #registerBtn{
+            margin: 1em 0;
+        }
+        .form{
+            padding: 1em;
+            
+            
+            width: 100%;
+            display:flex;
+            justify-content: center;
+           
+           /* text-align: center; */
+        }
+        input{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const formLoginEl=<div className="formElements">
+                <h1>Login</h1>
+                <div>
+                    <label htmlFor="username " className=" element block">Username Name</label>
+                    <input 
+                        type="text" 
+                        id="username"
+                        name="username"
+                        placeholder="Username Name"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="password " className="element block">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                    />
+                </div>
+                
+                <button type="submit" id="registerBtn" className="registerBtn block">Register</button>
+            </div>
+        const formLogin=React.createElement(
+            "form",
+            {
+                action:"register.html",
+                id:"login-form",
+                className:"form"
+                
+            },
+            formLoginEl
+        )
+        //const demo1=<div>Demo1 {form}</div>
+        //console.log(demo)
+        const root=ReactDOM.createRoot(document.querySelector('#root'))
+        root.render(
+            formLogin
+        )
+        
+        
+    </script>
+</body>
+</html>
+
+
+
+
+

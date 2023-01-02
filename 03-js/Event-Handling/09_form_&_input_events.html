@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forms</title>
+    </head>
+    <body>
+        <form id="profile-name" action="success.html"> <!-- submit event -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+
+            <button type="submit">Submit</button> <!-- click event -->
+        </form>
+        
+        <form id="profile-name-2">
+            <label for="name-2">Name</label>
+            <input type="text" id="name-2" name="name-2" />
+
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            function isValid(){
+                return true;
+            }
+            const profileForm = document.querySelector('#profile-name')
+            console.log(document.querySelectorAll('form'));
+
+            profileForm.querySelector('button').addEventListener('click',function(){
+                console.log('Button click');
+            })
+            profileForm.addEventListener('submit',function(evt){
+                evt.preventDefault();
+                console.log('form submit')
+                
+
+                if(isValid()){
+                    //profileForm.submit();
+                    //console.log('form submit')
+                    this.submit();
+                }
+
+            })
+
+
+            console.lo
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .message {
+            padding: 0.5em;
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+
+        <div id="root"></div>
+
+        
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+        
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+            const head=React.createElement(
+                'h1',
+                {
+                    id:"inroHeading"
+                },
+                'Intro1'
+
+            )
+            const head1=(<header>Main Intro</header>)
+            const el1 =( <div id="message" className="message">
+                Hello <strong>React</strong>
+            </div>);
+            const el2 = (<div id="message" className="message">
+                Hello <strong>React</strong>
+            </div>);
+                        // // no "extra" container element is created
+
+            const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
+            root.render( 
+                <React.Fragment>
+                    {head1}
+                    {head}
+                    {el1}
+                    {el2}
+                </React.Fragment>
+            
+            );
+        </script>
+
+</body>
+</html>

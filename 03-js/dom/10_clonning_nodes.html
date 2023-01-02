@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert {
+            padding: 0.5em 1em;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert" id="alert-1">
+        Some initial content
+    </div>
+    <script>
+        const alert1 = document.querySelector('#alert-1')
+        //console.log(alert1)
+        const newAlert = alert1.cloneNode(true)
+        newAlert.id = 'alert-2'
+        document.body.appendChild(newAlert);
+        console.log(newAlert)
+    </script>
+</body>
+</html>

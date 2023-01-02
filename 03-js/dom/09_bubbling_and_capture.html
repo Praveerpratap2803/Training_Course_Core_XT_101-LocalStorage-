@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <section>
+            <div>
+                <button>Click me</button>
+            </div>
+        </section>
+
+        <script>
+            const section1 = document.querySelector('section');
+            const div1 = document.querySelector('section > div'); //1st child of parent section i.e div
+            const button1 = document.querySelector('section > div > button');
+            button1.addEventListener('click', function () {
+                console.log('button click handler (bubble)');
+            });
+            div1.addEventListener('click', function () {
+                console.log('div click handler (bubble)');
+            });
+            section1.addEventListener('click', function () {
+                console.log('section click handler (bubble)');
+            });
+            button1.addEventListener(
+                'click',
+                function () {
+                    console.log('button click handler (capture)');
+                },true);
+            div1.addEventListener(
+                'click',
+                function () {
+                    console.log('div click handler (capture)');
+                },true);
+            section1.addEventListener(
+                'click',
+                function () {
+                    console.log('section click handler (capture)');
+                },true);
+        </script>
+    </body>
+</html>

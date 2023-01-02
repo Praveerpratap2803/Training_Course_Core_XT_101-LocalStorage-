@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grid</title>
+        <style>
+            /* Breakpoints : The screen width values at which the layout will change */
+
+            /* mobile first (xs-phone) */
+            body {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .row {
+                display: grid;
+                grid-auto-flow: row;
+                grid-auto-rows: 300px;
+                grid-template-columns: 1fr;
+                gap: 1em;
+            }
+
+            .col {
+                background-color: lightgray;
+            }
+
+            @media ( min-width : 480px ) {
+                .row {
+                    grid-template-columns: repeat( 2, 1fr );
+                }
+            }
+            
+            /* tablet : >= 768px */
+            @media ( min-width : 768px ) {
+                .row {
+                    grid-template-columns: repeat( 3, 1fr );
+                }
+            }
+
+            /* desktop : >= 1280px */
+            @media ( min-width : 1280px ) {
+                .row {
+                    grid-template-columns: repeat( 4, 1fr );
+                }
+            }
+
+            /* smart tv : >= 2048px */
+            @media ( min-width : 2048px ) {
+                body {
+                    max-width: 2048px;
+                }
+
+                .row {
+                    grid-template-columns: repeat( 5, 1fr );
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </body>
+</html>

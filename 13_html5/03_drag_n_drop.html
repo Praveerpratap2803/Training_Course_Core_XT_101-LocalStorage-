@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Drag n drop</title>
+        <style>
+            .list-unstyled {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .users-list {
+                padding: 1em;
+                border: 1px solid #444;
+                border-radius: 5px;
+                box-shadow: 0px 0px 2px 2px rgba( 128, 128, 128, 0.5 );
+            }
+
+            .users-list li {
+                display: inline-block;
+                padding: 0.4em;
+                border-radius: 4px;
+                margin: 0.4em 0.5em;
+                background-color: #444;
+                color: ivory;
+                cursor: crosshair;
+            }
+            .users-list li:hover {
+                box-shadow: 0px 0px 3px 2px rgba(255, 215, 0, 0.8);
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            Set draggable="true" on the elements which you allow the user to drag
+        -->
+        <h2>All users</h2>
+        <ul class="users-list list-unstyled" id="all-users">
+            <li draggable="true" data-id="john-doe">John Doe</li>
+            <li draggable="true" data-id="jane-doe">Jane Doe</li>
+            <li draggable="true" data-id="mark-smith">Mark Smith</li>
+            <li draggable="true" data-id="mary-smith">Mary Smith</li>
+        </ul>
+
+        <h2>All attendees</h2>
+        <ul class="users-list list-unstyled" id="all-attendees">
+
+        </ul>
+
+        <script>
+            const allUsersLis = document.querySelectorAll('#all-users li');
+
+            allUsersLis.forEach(userLi=>{
+                userLi.addEventListener('dragstart',function(event){
+                    const dataId = userLi.getAttribute('data-id')
+                    event.dataTransfer.setData('data-id',dataId)
+                })
+                userLi.addEventListener('click',function(){
+                    userLi.remove()
+                })
+            })
+            
+            const allAttendeesUl = document.querySelector('#all-attendees');
+            allAttendeesUl.addEventListener('dragover',function(event){
+                // The browser by default does not allow dropping an item. This default action can be prevented by calling event.preventDefault();
+               
+                event.preventDefault();
+                console.log('something has been dragged over all attendees list box')
+            })
+
+            allAttendeesUl.addEventListener('drop',function(event){
+                const dataId = event.dataTransfer.getData('data-id')
+                console.log(dataId);
+
+                const draggableLi = document.querySelector(`[data-id="${dataId}"]`)
+                allAttendeesUl.appendChild(draggableLi)
+            })
+
+            const allAttendeesLis = document.querySelectorAll('#all-attendees li')
+            allAttendeesLis.forEach(attendeeLi=>{
+                attendeeLi.addEventListener('dragstart',function(event){
+                    const attDataId=attendeeLi.getAttribute('data-id')
+                    event.dataTransfer.setData('data-id',attDataId)
+
+                })
+                attendeeLi.addEventListener('click',function(){
+                    attendeeLi.remove()
+                })
+            })
+
+            const allUsersUl = document.querySelector('#all-users');
+            allUsersUl.addEventListener('dragover',function(event){
+                event.preventDefault();
+                console.log('something has been dragged over all users list box')
+            })
+            allUsersUl.addEventListener('drop',function(event){
+                const userDataId = event.dataTransfer.getData('data-id')
+                console.log(userDataId)
+
+                const draggableLi = document.querySelector(`[data-id="${userDataId}"]`)
+                allUsersUl.appendChild(draggableLi)
+
+            })
+            
+        </script>
+    </body>
+</html>

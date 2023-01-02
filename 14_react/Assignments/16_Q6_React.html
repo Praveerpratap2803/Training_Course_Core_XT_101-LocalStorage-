@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello React</title>
+        <style>
+            .visitingCard{
+                background-color: blueviolet;
+            }
+            img{
+                width: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+
+            const BusinessCard = ({firstName,lastName,destination,company,tel,emailid,image})=>{
+                return(
+                    <React.Fragment>
+                        <div className="visitingCard">
+                            <div><img src={image}/></div>
+                            {lastName===undefined?<div>{firstName}</div>:<div>{lastName} , {firstName}</div>}
+                            
+                            <div>{destination}@{company}</div>
+                            <div>Tel:{tel}</div>
+                            <div>EmailId:{emailid}</div>
+                            
+                        </div>
+                    </React.Fragment>
+                )
+            }
+            const card=[<BusinessCard 
+                firstName="Praveer"
+                lastName="Pratap"
+                destination="Junior Associate"
+                company="Pubicis Sapient"
+                image="../images/Photo.jpg"
+                
+                    tel= "+001-123-456-7890"
+                    emailid= "praveer@example.com"
+                
+            >
+            </BusinessCard>,
+            <BusinessCard 
+                firstName="Praveer"
+                
+                destination="Junior Associate"
+                company="Pubicis Sapient"
+                image="../images/Photo.jpg"
+                    tel= "+001-123-456-7890"
+                    emailid= "praveer@example.com"
+                
+            >
+            </BusinessCard>,
+            <BusinessCard 
+                firstName="Tejveer"
+                
+                destination="Game Developer"
+                company="Ubisoft"
+                image="../images/PHOTO_Tejveer.jpg"
+                    tel= "+001-123-456-7890"
+                    emailid= "praveer@example.com"
+                
+            >
+            </BusinessCard>
+        
+            ]
+
+            const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
+            root.render( card );
+        </script>
+    </body>
+</html>

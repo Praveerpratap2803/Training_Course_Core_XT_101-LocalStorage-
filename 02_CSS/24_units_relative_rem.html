@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Units</title>
+        <style>
+            /* rem => "root em" (root -> html)
+            /* :root {} -> html {} */
+            
+            :root{
+                font-size: 10px;
+            }
+            
+            @media(min-width:980px)
+            {
+                :root{
+                    font-size: 16px;
+                }
+            }
+            
+            section{
+                font-size: 2rem;
+            }
+            p{
+                font-size: 3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            Within section: Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptates repellendus veniam. Mollitia, nihil quaerat? Blanditiis, ut nostrum sapiente cumque tenetur quod saepe, officiis sint dolore ipsa, cupiditate velit rem?
+
+            <p>
+                Within section para: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque modi alias exercitationem explicabo? Eveniet cumque debitis, fugit nobis excepturi porro fuga minus ea repellat, officia numquam maxime vitae rem quos.
+            </p>
+        </section>
+    </body>
+</html>

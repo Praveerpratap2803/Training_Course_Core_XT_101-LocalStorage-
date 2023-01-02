@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>localStorage</title>
+    </head>
+    <body>
+        <h1>Your emails...</h1>
+        <hr />
+        List of emails to be shown...
+
+        <script>
+
+           window.addEventListener( 'load', function() {
+                const theme = localStorage.getItem( 'theme' );
+                
+                if( theme === 'dark' ) {
+                    document.body.style.backgroundColor = '#333';
+                    document.body.style.color = 'ivory';
+                } else {
+                    document.body.style.backgroundColor = 'ivory';
+                    document.body.style.color = '#333';
+                }
+            });
+        </script>
+    </body>
+</html>

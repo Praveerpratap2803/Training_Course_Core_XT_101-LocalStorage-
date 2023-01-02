@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>List of Workshops | Workshops App</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="external/css/normalize.css">
+        <link rel="stylesheet" href="css/utils.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/pages/workshops-list.css">
+
+        <script defer src="js/nav.js"></script>
+    </head>
+    <body>
+        <nav class="main-menu">
+            <div class="d-sm-none left-nav">
+                <ul class="nav list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="workshops-list.html" class="active">List of workshops</a></li>
+                    <li><a href="add-workshop.html">Add a workshop</a></li>
+                </ul>
+            </div>
+            <div class="d-lg-none right-nav">
+                <ul class="nav list-unstyled">
+                    <li class="text-right">
+                        <button class="menu-toggler">Menu</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="container my-3">
+            <section>
+                <h1>List of Workshops</h1>
+                <hr />
+                <div class="workshops-list">
+                    <a class="workshop p-3" href="/workshop-details.html">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/2000px-AngularJS_logo.svg.png" alt="Angular JS logo" class="img-fluid" />
+                        <h2 class="workshop-title">
+                            Angular JS Bootcamp
+                        </h2>
+                        <div class="workshop-duration">
+                            01-01-2019 - 03-01-2019
+                        </div>
+                        <div class="workshop-time">
+                            9:30 AM - 1:30 PM
+                        </div>
+                    </a>
+                    <a class="workshop p-3" href="/workshop-details.html">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png" alt="React" class="img-fluid" />
+                        <h2 class="workshop-title">
+                            React JS Masterclass
+                        </h2>
+                        <div class="workshop-duration">
+                            14-01-2019 - 16-01-2019
+                        </div>
+                        <div class="workshop-time">
+                            10:00 AM - 6:00 PM
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

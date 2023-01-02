@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello React</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+            const phones = [
+                {
+                    name: "Samsung Galaxy S10+ Plus",
+                    price: 620,
+                    type: "refurbished",
+                    manufacturer: "Samsung",
+                    colors: [ "red", "green" ]
+                },
+                {
+                    name: "Apple iPhone 7 Plus",
+                    price: 450,
+                    type: "refurbished",
+                    manufacturer: "Apple"
+                },
+                {
+                    name: "One Plus 6",
+                    price: 430,
+                    type: "new",
+                    manufacturer: "OnePlus",
+                    colors: [ "blue", "green" ]
+                },
+                {
+                    name: "Apple iPhone Xs",
+                    price: 910,
+                    type: "new",
+                    manufacturer: "Apple"
+                },
+                {
+                    name: "One Plus 7",
+                    price: 430,
+                    type: "refurbished",
+                    manufacturer: "OnePlus",
+                    colors: [ "red", "green" ]
+                },
+                {
+                    name: "Apple iPhone 8 Plus",
+                    price: 610,
+                    type: "new",
+                    manufacturer: "Apple"
+                },
+            ];
+
+            const table = (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Type</th>
+                            <th>Manufacturer</th>
+                            <th>Colors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            phones.map(
+                                phone => (
+                                    <tr key={phone.name}>
+                                        <td>{phone.name}</td>
+                                        <td>{phone.price}</td>
+                                        <td>{phone.type}</td>
+                                        <td>{phone.manufacturer}</td>
+                                        <td>
+                                            {/*
+                                                EXERCISE: If colors property is not present, display a messge saying 'Colors information is not available'
+                                            */
+                                                phone.colors===undefined?
+                                                    <div>Colors information is not available</div>
+                                                    :phone.colors.map(
+                                                    color => (
+                                                        <strong key={color} className="color">{color}</strong>
+                                                    )
+                                                )
+                                                
+                                            }
+                                            
+                                        </td>
+                                    </tr>
+                                )
+                            )
+                        }
+                    </tbody>
+                </table>
+            );
+
+            const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
+            root.render( table );
+            
+
+
+            // {
+            //     phone.colors.map(
+            //         color => (
+            //             <strong key={color} className="color">{color}</strong>
+            //         )
+            //     )
+            // }
+        </script>
+    </body>
+</html>

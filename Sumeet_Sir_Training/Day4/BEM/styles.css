@@ -1,0 +1,29 @@
+
+
+.pageheader{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.pageheader__logo{
+    width: 60px;
+    height: 30px;
+}
+
+.searchform{
+ display: flex;
+ border: 1px solid gray;
+ border-radius: 3px;
+ padding: 5px;
+ gap:5px;
+}
+
+.searchform__searchterminput{
+    line-height: 1.5em;
+}
+
+.searchform__searchbtn--green{
+    background-color: rgb(76, 132, 76);
+    color: white;
+}

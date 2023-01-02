@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Styles Conflict Resolution</title>
+        <style>
+            /* b -> num of ids - Priority #1 */
+            /* c -> num of classes / pseudo classes / attribute selector - Priority #2 */
+            /* d -> num of types - Priority #3 */
+            /* If ( a = 0/1, b, c, d ) are same for the "top selectors", then choose based on order of the selectors */
+
+            /* Specificity = ( 0, 2, 0, 0 ) */
+            #div-1{
+                color: blueviolet;
+            }
+            #para-1{
+                color: red;
+            }
+            .body div p.para{
+                color: rgb(16, 40, 40);
+            }
+            body p.para{
+                color: aliceblue;
+            }
+            p.para{
+                color: red;
+            }
+            .para{
+                color: blue;
+            }
+           p{
+            color: black;
+           }
+        </style>
+    </head>
+    <body class="body">
+        <div class="div" id="div-1">
+            <!-- inline style is always the winner -->
+            <!-- for inline styling, the specificity is ( 1, 0, 0, 0 ) -->
+            <p class="para" id="para-1">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium consequatur illo eveniet, voluptas fuga unde quod accusantium? Est vero quis natus, vel reprehenderit nisi tempore obcaecati quod sequi in cum?
+            </p>
+        </div>
+    </body>
+</html>

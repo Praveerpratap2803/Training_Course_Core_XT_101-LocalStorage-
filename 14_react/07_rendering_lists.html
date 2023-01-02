@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+    <style>
+        .message-list {
+            padding: 0.5em;
+            border: 1px solid goldenrod;
+        }
+
+        .message {
+            padding: 0.5em;
+            margin-bottom: 2px;
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const users = [
+                'John Doe',
+                'Jane Doe',
+                'Mark Smith',
+                'Mary Smith'
+        ];
+        
+        // we want to generate this array
+        // const userDivs = [
+        //     <div className="message">{users[0]}</div>,
+        //     <div className="message">{users[1]}</div>,
+        //     <div className="message">{users[2]}</div>,
+        //     <div className="message">{users[3]}</div>
+        // ];
+
+        const userDivs = [];
+        for(let i=0;i<users.length;i++){
+            userDivs.push(<div className="message">{users[i]}</div>)
+        }
+        console.log(userDivs)
+        const listsOfUsers = <div className="message">{userDivs}</div>
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(userDivs);
+
+    </script>
+
+
+
+
+</body>
+</html>
+
+
+

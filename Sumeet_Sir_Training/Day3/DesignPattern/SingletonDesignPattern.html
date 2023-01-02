@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   let company = { name: "Sapient", location: "Gurugram" };
+      //   let anotherCompany = {};
+
+      //   let singleton = (function () {
+      //     return { name: "Sapient", location: "Gurugram" };
+      //   })();
+
+      let singleton = (function () {
+        let isInstanceCreated = false;
+        let instance;
+        function GetInstance() {
+          if (!instance) {
+            instance = { name: "Sapient", location: "Gurugram" };
+          }
+          return instance;
+        }
+        return {
+          getInstance: GetInstance,
+        };
+      })();
+
+      let theInstance = singleton.getInstance();
+      let anotherInstance = singleton.getInstance();
+      anotherInstance.name = "Publicis Sapient";
+    </script>
+  </head>
+  <body></body>
+</html>

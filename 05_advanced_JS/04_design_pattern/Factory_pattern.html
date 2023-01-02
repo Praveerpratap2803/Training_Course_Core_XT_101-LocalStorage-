@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .hl {
+                border-bottom: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="hl">Form Builder</h1>
+
+        <input type="text" placeholder="Label for the input" id="field-label" />
+        
+        <select id="field-type">
+            <option value="text">text</option>
+            <option value="textarea">textarea</option>
+            <option value="select">dropdown</option>
+        </select>
+
+        <input type="text" placeholder="Default value" id="field-default-value" />
+
+        <div>
+            Fill these as well if you selected dropdown
+        </div>
+        <input type="text" placeholder="Option 1" id="field-option-1" />
+        <input type="text" placeholder="Option 2" id="field-option-2" />
+        <input type="text" placeholder="Option 3" id="field-option-3" />
+        <input type="text" placeholder="Option 4" id="field-option-4" />
+
+        <button type="button" class="btn-add-input">Add input</button>
+        
+        <script>
+            /**
+             * There is a class with many sub-classes
+             * We do not know in advance (when we write the code) what sub-class objects have to be created.
+             * 
+             * The Factory pattern helps simplify the code in such situations
+             */
+            class Input {
+                constructor( type, label, defaultValue ) {
+                    this.type = type;
+                    this.label = label;
+                    this.defaultValue = defaultValue;
+                }
+            }
+
+            class TextInput extends Input {
+                constructor( { label, defaultValue } ) {
+                    super( 'text', label, defaultValue );
+                }
+            }
+            
+            class TextareaInput extends Input {
+                constructor( { label, defaultValue } ) {
+                    super( 'textarea', label, defaultValue );
+                }
+            }
+            
+            class SelectInput extends Input {
+                constructor( { label, defaultValue, options } ) {
+                    super( 'select', label, defaultValue );
+
+                    this.options = options;
+                }
+            }
+
+            /**
+             * factory() is a function which checks some distinguishing factor and creates the appropriate object and returns it
+             */
+            const factory = ( { type, ...args } ) => {
+                if( type === 'text' ) {
+                    return new TextInput( args );
+                } else if( type === 'textarea' ) {
+                    return new TextareaInput( args );
+                } else if( type === 'select' ) {
+                    return new SelectInput( args );
+                }
+            };
+
+            const fields = [];
+
+            document.querySelector( '.btn-add-input' ).addEventListener( 'click', function() {
+                // use the factory function to create the appropriate input object
+                const inputEl = factory({
+                    type: document.getElementById( 'field-type' ).value,
+                    defaultValue: document.getElementById( 'field-default-value' ).value,
+                    label: document.getElementById( 'field-label' ).value,
+                    options: [
+                        document.getElementById( 'field-option-1' ).value,
+                        document.getElementById( 'field-option-2' ).value,
+                        document.getElementById( 'field-option-3' ).value,
+                        document.getElementById( 'field-option-4' ).value
+                    ]
+                });
+
+                fields.push( inputEl );
+
+                console.log( fields );
+            });
+        </script>
+    </body>
+</html>

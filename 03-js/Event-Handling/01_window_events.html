@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>window load</title>
+        <link rel="stylesheet" href="css/app.css">
+        <script>
+            window.addEventListener('load',function(){
+                console.log(document.querySelector('h1'));//here it will run because this function will be called in the end
+            })
+        </script>
+        
+        <style>
+            .alert {
+                padding: 1em;
+                border: 1px solid black;
+                text-align: center;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>The window events</h1>
+        <hr />
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime voluptate, laudantium, corrupti voluptatibus ipsa maiores consequatur officiis harum hic facere id atque excepturi vitae sequi amet illo a deleniti quae.
+            <a href="https://www.loudegg.com/most-famous-cartoon-characters/">
+                <img src="images/Mickey-Mouse.jpeg" alt="Mickey mouse" />
+            </a>
+        </p>
+
+        <div class="alert" id="window-size"></div>
+        <div class="alert" id="scroll-position"></div>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti odit excepturi itaque laudantium ipsum libero, adipisci sed atque? In eos accusantium consequuntur quasi nobis possimus veniam suscipit consequatur porro dolorum dolorem aut, dignissimos inventore ut libero consectetur harum sed necessitatibus hic eius, accusamus est. Voluptatibus magni distinctio quis excepturi architecto aut porro iste suscipit pariatur placeat nesciunt dolor eos, numquam quaerat harum esse culpa! Consequuntur et eum suscipit, ullam ipsam ducimus vero fuga, perferendis fugiat, placeat facere. Non illum soluta tenetur nulla adipisci exercitationem dolorem doloribus unde? Rem nesciunt consequatur eveniet neque quia laudantium laborum cumque, aliquam ea fugiat dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos sed deserunt amet numquam labore et architecto. Eum nobis nam qui eaque magnam quidem. Molestiae, inventore cumque? Odio asperiores repudiandae enim. Quia eum reiciendis fugit dolorem ex? Est deleniti, vitae sed voluptates labore quae laboriosam ab tempora magni sequi quos reiciendis repellat, aliquid quasi fugiat natus nesciunt dignissimos? Sunt ducimus, esse et aperiam quam reprehenderit necessitatibus nobis possimus, veniam illo ab molestias nam! Sit cumque repellendus obcaecati molestias reprehenderit? Soluta ad pariatur vitae ea obcaecati tempora a saepe cumque. Temporibus nostrum tenetur eaque sapiente ex optio eius numquam explicabo vero, nemo harum, atque sit deserunt asperiores, ad neque debitis hic quaerat quidem unde? In officiis totam vitae, dignissimos repellendus a, aut quae voluptate tenetur illo autem reprehenderit delectus sunt temporibus similique culpa veniam quasi distinctio eius aliquam sint! Tenetur est, excepturi ipsam repellendus eum, libero a exercitationem minima ratione quibusdam aperiam quis necessitatibus nemo nihil alias id beatae explicabo cumque voluptatibus, aliquid iste placeat! Qui modi corrupti dolorem adipisci id iusto impedit obcaecati inventore aut ut, fugit est, quae repellendus. Nisi, veniam. Natus, saepe impedit in quae quaerat quos quisquam, dicta ipsa accusantium harum adipisci assumenda magnam officia voluptas praesentium! Saepe cupiditate consequuntur error, maiores eos, iure quas inventore similique placeat nisi natus corrupti! Pariatur incidunt porro est doloremque praesentium, maxime, sed asperiores quo qui omnis optio reiciendis dolor consequatur dolorum. Quidem debitis molestiae harum expedita alias dicta fuga quo sapiente, delectus itaque beatae nihil dolorum sed reiciendis facere? Inventore et ipsum eveniet ullam accusamus pariatur perspiciatis quidem debitis dolorem possimus! Laudantium itaque cupiditate deleniti non adipisci id officiis accusantium, odit natus cumque fuga at nemo accusamus maxime quos sequi eum temporibus, sunt repudiandae rerum, iure consequatur quisquam assumenda! Blanditiis illum voluptates libero reprehenderit omnis quaerat magnam vitae esse accusamus tenetur cum delectus dolorum, unde consectetur officiis debitis officia quisquam deleniti pariatur alias, explicabo molestiae aliquid minima! Repellat nemo distinctio, ea velit, aliquam rem repellendus sequi a veniam ipsa tempore incidunt asperiores? Dolorum rem quaerat ipsa minima facilis magni, aperiam quas ipsam neque repellat deserunt soluta quidem placeat reprehenderit autem natus consequuntur perferendis doloremque itaque blanditiis molestiae necessitatibus est animi quis? Repellendus illo facere repellat in deleniti impedit quos temporibus odit ipsa inventore. Necessitatibus ducimus reprehenderit nemo veniam mollitia. Assumenda facilis vitae, beatae quod, ullam alias animi dicta exercitationem ipsum libero sapiente dolore. Iste voluptatibus quod qui. Consectetur a quasi culpa saepe maxime maiores est obcaecati minima iusto vero nemo aliquam odio laudantium nam quaerat totam reiciendis, suscipit deleniti magnam asperiores! Nulla, quae doloremque tempora cupiditate saepe ipsa doloribus minus? Inventore doloribus maxime laborum fugit unde, esse expedita cum ex ea similique ab voluptate iste provident harum minus saepe enim sed perferendis incidunt perspiciatis quas debitis, odit a nam! Eaque debitis sed eos totam blanditiis odit magni molestias quidem quo et facilis vero suscipit a fugiat dicta qui impedit, temporibus veritatis beatae sequi officia provident repudiandae. Velit harum, neque culpa nam ratione incidunt, architecto eius eligendi labore corrupti, enim obcaecati?
+        </p>
+
+        <script>
+            console.log(1);
+            window.addEventListener('load',function(){
+                console.log('page has loaded')
+            })
+            console.log(2)
+
+            window.addEventListener('beforeunload',function(){
+                console.log('bye bye')
+            })
+            window.addEventListener( 'resize', function() {
+                const ws = document.querySelector( '#window-size' );
+                ws.textContent = `${window.innerWidth}px, ${window.innerHeight}px`;
+            });
+            
+            // Explore: Debouncing
+            window.addEventListener( 'scroll', function() {
+                const sp = document.querySelector( '#scroll-position' );
+                sp.textContent = `${document.documentElement.scrollTop}px`;
+            });
+        </script>
+
+    </body>
+</html>

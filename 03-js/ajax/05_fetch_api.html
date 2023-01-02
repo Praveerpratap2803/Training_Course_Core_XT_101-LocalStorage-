@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fetch API, showing and working with fetched data</title>
+        <link rel="stylesheet" href="workshops-list.css">
+        <style>
+            .message {
+                padding: 0.5em 1em;
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: lightgray;
+            }
+
+            .message-error {
+                border: 1px solid red;
+                background-color: crimson;
+                color: white;
+            }
+
+            .btn-delete {
+                width: 100%;
+                padding: 0.5em;
+                border: 1px solid black;
+                border-radius: 5px;
+                margin: 0.5em 0;
+                font-size: 1.2em;
+                background-color: crimson;
+                color: ivory;
+                cursor: pointer;
+            }
+
+            .hide {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="container">
+            <div>
+                <h1>List of workshops</h1>
+                <hr />
+                <input type="search" class="search" id="search-workshops" />
+                <div class="workshops-list"></div>
+                <div class="message message-info hide"></div>
+                <div class="message message-error hide"></div>
+            </div>
+        </main>
+
+        <script>
+            let allWorkshops = []; // or null
+            
+            // let us set up for filtering the workshops when use types in search box 
+            const searchEl = document.querySelector( '#search-workshops' );
+            
+            searchEl.addEventListener( 'input', function( event ) {
+                const search = searchEl.value;
+
+                // let us find the list of workshops that have the search key in their name
+                const matchedWorkshops = allWorkshops.filter(
+                    function( workshop ) {
+                        // return true if the workshop's name has the search string in it
+                        return workshop.name.toLowerCase().includes( search.toLowerCase() );
+                    }
+                );
+
+                showWorkshops( matchedWorkshops );
+            });
+
+            // pass on workshops to show, and this function will show it on the page
+            function showWorkshops( workshops ) {
+                const workshopsList = document.querySelector( '.workshops-list' );
+                
+                let workshopsListStr = '';
+
+                workshops.forEach(
+                    function( workshop ) {
+                        // console.log( workshop.name, workshop.category, workshop.location.city );
+
+                        // workshopsListStr = workshopsListStr + `
+                        workshopsListStr += `
+                            <div class="workshop p-3" data-workshopid="${workshop.id}">
+                                <img src="${workshop.imageUrl}" alt="${workshop.name}" class="img-fluid" />
+                                <h2 class="workshop-title">
+                                    ${workshop.name}
+                                </h2>
+                                <div class="workshop-duration">
+                                    ${workshop.startDate} - ${workshop.endDate}
+                                </div>
+                                <div class="workshop-time">
+                                    ${workshop.time}
+                                </div>
+                                <button class="btn-delete">Delete workshop</button>
+                            </div>
+                        `
+                    }
+                );
+
+                workshopsList.innerHTML = workshopsListStr;
+
+                setupListeners();
+            }
+
+            function setupListeners() {
+                const buttons = document.querySelectorAll( '.btn-delete' );
+
+                console.log( buttons );
+
+                buttons.forEach(
+                    function( button ) {
+                        button.addEventListener( 'click', function() {
+                            const workshop = button.closest( '.workshop' );
+                            const workshopId = workshop.getAttribute( 'data-workshopid' );
+                            console.log( workshopId );
+
+                            fetch( `https://workshops-server.herokuapp.com/workshops/${workshopId}`,
+                            {
+                                method: 'DELETE'
+                            } )
+                                .then(
+                                    function( response ) {
+                                        if( !response.ok ) {
+                                            throw new Error( response.statusText );
+                                        }
+
+                                        workshop.remove();
+                                    }
+                                )
+                        });
+                    }
+                )
+            }
+
+            const infoMessage = document.querySelector( '.message-info' );
+            infoMessage.textContent = 'Loading workshops...Please wait...';
+            infoMessage.classList.remove( 'hide' );
+
+            // returns a "Promise object"
+            // 2 methods of promise object - then / catch
+            // the promise will reject if...
+                // The network is down
+                // The server is down
+            fetch( 'https://workshops-server.herokuapp.com/workshops' )
+                .then(
+                    function( response ) {
+                        if( !response.ok ) { // for 404 kind of errors, we should check and explcitly throw an error
+                            throw new Error( response.statusText );
+                        }
+
+                        return response.json();
+                    }
+                )
+                .then(
+                    function( workshops ) {
+                        allWorkshops = workshops;
+                        return workshops;
+                        // showWorkshops( workshops );
+                    }
+                )
+                .then( showWorkshops )
+                .catch(
+                    function( error ) {
+                        const errorMessage = document.querySelector( '.message-error' );
+                        errorMessage.textContent = error.message;
+                        errorMessage.classList.remove( 'hide' );
+                    }
+                )
+                .finally(
+                    function() {
+                        infoMessage.textContent = '';
+                        infoMessage.classList.add( 'hide' );
+                    }
+                )
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

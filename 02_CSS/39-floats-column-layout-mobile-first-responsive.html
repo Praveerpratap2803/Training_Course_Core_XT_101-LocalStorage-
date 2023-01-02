@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Column layout</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            :root {
+                font-size: 20px;
+            }
+
+            .row {
+                overflow: auto;
+            }
+
+            .col {
+                float: left;
+                margin: 0;
+            }
+
+            /* 1, 5, 9, 13 etc. */
+            .col:nth-child(4n+1) {
+                margin-left: 0;
+            }
+            
+            /* 4, 8, 12, 16 etc. */
+            .col:nth-child(4n) {
+                margin-right: 0;
+            }
+
+            .guide {
+                width: 100%;
+                padding: 1.5em;
+                border-radius: 8px;
+                box-shadow: 0px 0px 5px 5px rgba( 160, 160, 160, 0.5 );
+                background-color: lightgray;
+            }
+
+            .guide a {
+                display: inline-block;
+                width: 100%; /* 100% of content width of parent */
+                padding: 1em;
+                border-radius: 8px;
+                text-decoration: none;
+                color: white;
+                background-color: gray;
+                text-align: center;
+            }
+
+            @media (min-width : 980px) {
+                .col {
+                    margin: 0 2%;
+                }
+
+                .guide {
+                    width: 22%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col guide guide--primary">
+                <h2>Accessible Front-End Components</h2>
+
+                <p>
+                    Reliable accessible UI components: :focus styles, modals, date pickers, navigation, tables, buttons, SVGs.
+                </p>
+                
+                <a href="#">
+                    Explore Accessible Components
+                </a>
+            </div>
+            <div class="col guide guide--primary">
+                <h2>Accessible Front-End Components</h2>
+
+                <p>
+                    Reliable accessible UI components: :focus styles, modals, date pickers, navigation, tables, buttons, SVGs.
+                </p>
+                
+                <a href="#">
+                    Explore Accessible Components
+                </a>
+            </div>
+            <div class="col guide guide--primary">
+                <h2>Accessible Front-End Components</h2>
+
+                <p>
+                    Reliable accessible UI components: :focus styles, modals, date pickers, navigation, tables, buttons, SVGs.
+                </p>
+                
+                <a href="#">
+                    Explore Accessible Components
+                </a>
+            </div>
+            <div class="col guide guide--primary">
+                <h2>Accessible Front-End Components</h2>
+
+                <p>
+                    Reliable accessible UI components: :focus styles, modals, date pickers, navigation, tables, buttons, SVGs.
+                </p>
+                
+                <a href="#">
+                    Explore Accessible Components
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

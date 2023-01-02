@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="decription" content="Using form and input elements in HTML">
+        <style>
+            /* select all elements that are part of visually-hidden class */
+            .visually-hidden {
+                position: absolute !important;
+                top: auto;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .form-group {
+                margin: 1em; /* 1em = 16px */
+            }
+
+            .form-group label {
+                display: inline-block; /* to have inline elements accept width, padding, margin etc. */
+                width: 200px; /* inline elements do not accept width */
+            }
+
+            fieldset {
+                padding: 0;
+                border: none;
+                margin: 0;
+                margin-inline-start: 2px;
+                margin-inline-end: 0;
+                padding-block-start: 0;
+                padding-inline-start: 0;
+                padding-inline-end: 0;
+                padding-block-end: 0;
+                min-inline-size: 0;
+            }
+
+            legend {
+                display: inline;
+                padding: 0;
+                margin: 0;
+                padding-inline-start: 0;
+                padding-inline-end: 0;
+                border-width: 0;
+                border-style: none;
+                border-color: initial;
+                border-image: none;
+            }
+
+            .required {
+                color: crimson;
+            }
+
+            .help-text {
+                color: #555;
+            }
+
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                padding: 1em;
+            }
+        </style>
+        <title>Forms</title>
+    </head>
+    <body>
+        <!--
+            ARIA - Accessible Rich Internet Applications
+            W3C develops web standards 
+        -->
+        <h1>My Profile</h1>
+        <hr />
+        <!--
+            The form is submitted using an "HTTP GET request" (by default)
+            The data is passed as query string parameters in the URL
+        -->
+        <!--
+            The form can be submitted using an "HTTP POST request" ()
+            The data is passed as query string parameters in the HTTP request body
+        -->
+
+        <!-- The browser will gather all user inputs when the form is submitted -->
+        <strong>All field marked with <span class="required">*</span> are required and must be filled.</strong>
+        
+        <!-- using novalidate attribute we can stop browser validations -->
+        <!-- <form action="06-success.html" method="post" novalidate> -->
+        <form action="06-success.html" method="post">
+        <!--
+                Labels
+                1. Best is to have labels and show them
+                2. In case you have to hide labels, use the visually-hidden class as defined above (screen readers are not guaranteed to read placeholders, but they are guaranteed to read labels hidden in this way).
+            -->
+            <!-- click on the label -> input should "gain focus" -->
+            <!-- query string of the URL is one way data can be passed - ?fname=Jonathan&lname=Doe -->
+            <div class="form-group">
+                <label for="first-name" class="visually-hidden">First Name</label>
+                <input
+                    type="text"
+                    id="first-name"
+                    placeholder="First name"
+                    value="John"
+                    name="fname"
+                    required
+                    autocomplete="off"
+                />
+                <span class="required">*</span>
+            </div>
+
+            <div class="form-group">
+                <label for="last-name" class="visually-hidden"></label>
+                <input
+                    type="text"
+                    id="last-name"
+                    placeholder="Last name"
+                    value="Doe"
+                    name="lname"
+                />
+            </div>
+
+            <!-- division tag (block-level container tag) -->
+            <!-- Examples of block-level elements - h1, h2, p, ul, ol, li, section, footer,  -->
+
+            <!-- Inline elements -->
+            <!-- Examples of inline elements - img, input, label, a -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    aria-describedby="password-help"
+                />
+                <span class="required">*</span>
+                <div id="password-help" class="help-text">
+                    Password must be 8 characters long. Must have a digit, a special character, an uppercase, a lowercase letter.
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Date of birth</label>
+                <input
+                    type="date"
+                    id="dob"
+                    name="dob"
+                    min="1947-08-15"
+                    max="2009-12-31"
+                />
+            </div>
+            
+            <div class="form-group">
+                <label for="official-email">Sapient email</label>
+                <input
+                    type="email"
+                    id="official-email"
+                    name="official-email"
+                    pattern="[A-Za-z0-9\._]+@(publicisgroupe.net|gmail.com)$"
+                    autofocus
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="base-location">Base location</label>
+                <!-- the select input's value is the selected option's value -->
+                <select id="base-location" name="base-location">
+                    <option value="">-- Select your base location --</option>
+                    <option value="BLR">Bangalore</option>
+                    <option value="BOM">Mumbai</option>
+                    <option value="NOD">Noida</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="base-location-freeform-text">Base location</label>
+                <!-- the select input's value is the selected option's value -->
+                <input
+                    list="sapient-locations"
+                    id="base-location-freeform-text" 
+                    name="base-location-freeform-text"
+                />
+            </div>
+
+            <datalist id="sapient-locations">
+                <option value="BLR">Bangalore</option>
+                <option value="BOM">Mumbai</option>
+                <option value="NOD">Noida</option>
+            </datalist>
+
+            <div class="form-group">
+                <fieldset>
+                    <legend>Preferred location</legend>
+                    <label>
+                        <input type="radio" value="blr" name="preferred-location" />
+                        Bangalore
+                    </label>
+                    <label>
+                        <input type="radio" value="bom" name="preferred-location" />
+                        Mumbai
+                    </label>
+                    <label>
+                        <input type="radio" value="nod" name="preferred-location" />
+                        Noida
+                    </label>
+                </fieldset>
+            </div>
+            
+            <div class="form-group">
+                <fieldset>
+                    <legend>Party locations</legend>
+                    <label>
+                        <input type="checkbox" value="blr" name="party-locations" />
+                        Bangalore
+                    </label>
+                    <label>
+                        <input type="checkbox" value="bom" name="party-locations" />
+                        Mumbai
+                    </label>
+                    <label>
+                        <input type="checkbox" value="nod" name="party-locations" />
+                        Noida
+                    </label>
+                </fieldset>
+            </div>
+
+            <!-- we have to add other attributes and label -->
+            <div class="form-group">
+                <label for="search">Search</label>
+                <input type="search" id="search" />
+            </div>
+            <div class="form-group">
+                <label for="start-time">Start time</label>
+                <input type="time" id="start-time" />
+            </div>
+            <div class="form-group">
+                <label for="favorite-color">Favorite Color</label>
+                <input type="color" name="favorite-color" id="favorite-color" />
+            </div>
+            <div class="form-group">
+                <label for="home-page">Home page</label>
+                <input type="url" id="home-page" name="home-page" />
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" name="quantity" min="2" max="10" step="2" />
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rate your experience</label>
+                <!-- slider (number can be displayed using JS) -->
+                <input type="range" min="0" max="10" step="2" id="rating" name="rating" />
+            </div>
+
+            <button type="submit">Update profile</button>
+            
+            <!-- bring all the input to the original values -->
+            <button type="reset">Reset</button>
+            <button type="button">General button</button>
+
+            <!-- alternative way to set up buttons -->
+            <!-- Hey browser! dont do validations on this form when this button is used for submitting the form -->
+            <input type="submit" value="Update profile" formnovalidate />
+        </form>
+    </body>
+</html>

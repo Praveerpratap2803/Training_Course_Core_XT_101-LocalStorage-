@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* mobile styles first (some will be applicable to desktop as well as they will not be overridden) */
+            body {
+                margin: 0;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-rows: 50px auto auto 50px;
+                grid-template-columns: 1fr;
+            }
+
+            header,
+            footer {
+                text-align: center;
+                background-color: navy;
+                color: white;
+            }
+
+            /* desktop-specific styles */
+            @media ( min-width : 800px ) {
+                .grid {
+                    grid-template-rows: 50px 1fr 50px;
+                    grid-template-columns: 200px auto; /* aside main */
+                }
+            
+                header {
+                    grid-area: 1 / 1 / 2 / 3;
+                }
+            
+                footer {
+                    grid-area: 3 / 1 / 4 / 3;
+                }
+            }
+
+            .row {
+                display: grid;
+                grid-auto-flow: row;
+                grid-auto-rows: 300px;
+                grid-template-columns: 1fr;
+                gap: 1em;
+            }
+
+            .col {
+                background-color: lightgray;
+            }
+
+            @media ( min-width : 480px ) {
+                .row {
+                    grid-template-columns: repeat( 2, 1fr );
+                }
+            }
+            
+            /* tablet : >= 768px */
+            @media ( min-width : 768px ) {
+                .row {
+                    grid-template-columns: repeat( 3, 1fr );
+                }
+            }
+
+            /* desktop : >= 1280px */
+            @media ( min-width : 1280px ) {
+                .row {
+                    grid-template-columns: repeat( 4, 1fr );
+                }
+            }
+
+            /* smart tv : >= 2048px */
+            @media ( min-width : 2048px ) {
+                body {
+                    max-width: 2048px;
+                }
+
+                .row {
+                    grid-template-columns: repeat( 5, 1fr );
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <header>
+                ABC Consulting
+            </header>
+            
+            <aside>
+                Sidebar
+            </aside>
+
+            <main>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </main>
+
+            <footer>
+                &copy; ABC Consulting
+            </footer>
+        </div>
+    </body>
+</html>

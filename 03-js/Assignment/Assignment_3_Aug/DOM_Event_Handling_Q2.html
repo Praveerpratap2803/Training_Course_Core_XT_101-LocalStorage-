@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <button class="one">Submit</button>
+    <div class="color-change">
+        <label for ='name'>Name</label>
+        <input type="text" id="name" name="name" />
+    </div>
+    <div>
+    <button class="two">Submit1</button>
+    <span class="message"></span>
+    </div>
+    <script>
+        /*
+        const button1 = document.querySelector('button')
+        button1.onclick = function(){
+        alert('Clicked on Submit Button')
+        }
+        const button2 = document.querySelector('button')
+        button2.onclick = function(){
+        alert('Clicked on Submit Button 2')
+        }
+        */
+        const button1 = document.querySelector('.one')
+        button1.addEventListener('click',function(){
+
+            alert('button is clicked access file_1')
+            console.log('button is clicked access file_1')
+        })
+        button1.addEventListener('click',function(){
+            alert('button is clicked access file_2')
+            console.log('button is clicked access file_2')
+        })
+
+        function change(){
+            inputa=input1.value;
+            if(inputa.length >=8){
+                input1.classList.add('a')
+            }
+            else{
+                input1.classList.remove('a')
+            }
+        }
+        const input1 = document.querySelector('#name')
+        const message1 = document.querySelector('.message')
+        //console.log(input1)
+        input1.addEventListener('input',change);
+
+        const button2 = document.querySelector('.two')
+        button2.addEventListener('click',function(event){
+            inputa=input1.value;
+            if(inputa.length >=8){
+                console.log('submitted')
+                message1.innerHTML=''
+            }
+            else{
+                message1.innerHTML='<div>Name should be minimum 8 character</div>'
+                
+            }
+        })
+
+    </script>
+</body>
+</html>

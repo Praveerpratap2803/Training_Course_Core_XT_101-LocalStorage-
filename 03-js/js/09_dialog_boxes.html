@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="update-data">Click me</button>
+    <button id="accept-name">Click me</button>
+    <button id="delete-email">Click me</button>
+
+    <script>
+        document.querySelector('#update-data').onclick=function(){
+            alert('your data was updated');
+        };
+
+        document.querySelector('#accept-name').onclick=function(){
+            const name = prompt('Name','John');
+
+            if(name === null){
+                return;
+            }
+
+            alert(`Hello ${name}`);
+
+        }
+        document.querySelector('#delete-email').onclick=function(){
+            const choise =confirm('Are you sure');
+            if(choise){
+                alert('Email has been deleted')
+            }
+        }
+    </script>
+
+</body>
+</html>

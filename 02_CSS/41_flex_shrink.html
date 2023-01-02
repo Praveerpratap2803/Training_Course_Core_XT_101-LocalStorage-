@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flex box</title>
+        <style>
+            .row {
+                display: flex;
+                flex-direction: row; /* column, row (default) */
+                padding: 1em;
+                border: 2px solid black;
+            }
+            .col{
+                background-color: lightcoral;
+                flex-shrink: 1;
+            }
+            .col:nth-child(2n){
+                background-color: lightblue;
+                flex-shrink: 10;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">
+                lorem
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil.
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil.
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente architecto ex provident veritatis eligendi repudiandae! Rerum officiis velit quis repudiandae, dolor possimus tempore minima eos sit voluptas voluptatum totam?
+
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis dolorem iusto harum laudantium, explicabo magnam architecto earum, exercitationem quos provident repellat veniam nostrum voluptas. Repudiandae voluptatum ex sapiente tempora ipsam! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo quaerat repellendus voluptatum fuga ut explicabo amet id aspernatur, est hic voluptatem earum dolore illo quia facere alias deleniti. Ad.
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ut enim magni optio porro consequatur voluptate explicabo accusamus fugiat, ducimus similique asperiores pariatur, sunt necessitatibus id, dicta ipsam officiis maiores.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magnam aspernatur suscipit cumque, obcaecati itaque magni tenetur ipsam reprehenderit repellat dicta. Facilis delectus aperiam laudantium adipisci. Laboriosam consequuntur possimus eius!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, labore?
+
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente architecto ex provident veritatis eligendi repudiandae! Rerum officiis velit quis repudiandae, dolor possimus tempore minima eos sit voluptas voluptatum totam?
+
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis dolorem iusto harum laudantium, explicabo magnam architecto earum, exercitationem quos provident repellat veniam nostrum voluptas. Repudiandae voluptatum ex sapiente tempora ipsam! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo quaerat repellendus voluptatum fuga ut explicabo amet id aspernatur, est hic voluptatem earum dolore illo quia facere alias deleniti. Ad.
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ut enim magni optio porro consequatur voluptate explicabo accusamus fugiat, ducimus similique asperiores pariatur, sunt necessitatibus id, dicta ipsam officiis maiores.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magnam aspernatur suscipit cumque, obcaecati itaque magni tenetur ipsam reprehenderit repellat dicta. Facilis delectus aperiam laudantium adipisci. Laboriosam consequuntur possimus eius!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, labore?
+
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente architecto ex provident veritatis eligendi repudiandae! Rerum officiis velit quis repudiandae, dolor possimus tempore minima eos sit voluptas voluptatum totam?
+
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia et a rem facere laboriosam natus magni vel reprehenderit, perferendis quibusdam doloremque, distinctio recusandae vitae inventore atque, corrupti voluptas. Omnis, nihil. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis dolorem iusto harum laudantium, explicabo magnam architecto earum, exercitationem quos provident repellat veniam nostrum voluptas. Repudiandae voluptatum ex sapiente tempora ipsam! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi nemo quaerat repellendus voluptatum fuga ut explicabo amet id aspernatur, est hic voluptatem earum dolore illo quia facere alias deleniti. Ad.
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ut enim magni optio porro consequatur voluptate explicabo accusamus fugiat, ducimus similique asperiores pariatur, sunt necessitatibus id, dicta ipsam officiis maiores.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magnam aspernatur suscipit cumque, obcaecati itaque magni tenetur ipsam reprehenderit repellat dicta. Facilis delectus aperiam laudantium adipisci. Laboriosam consequuntur possimus eius!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, labore?
+
+            </div>
+    
+
+        </div>
+    </body>
+</html>

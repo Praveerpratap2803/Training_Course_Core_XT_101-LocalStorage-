@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-rows: 50px auto auto 50px;
+                grid-template-columns: 1fr ; /* aside main */
+            }
+
+            header,
+            footer {
+                text-align: center;
+                background-color: navy;
+                color: white;
+            }
+            @media(min-width : 800px){
+                .grid{
+                grid-template-rows: 50px 1fr 50px;
+                grid-template-columns: 200px auto;
+                }
+            }
+            aside{
+                text-align: center;
+                color: black;
+            }
+            header {
+                grid-area: 1 / 1 / 2 / 3;
+            }
+            
+            footer {
+                grid-area: 3 / 1 / 4 / 3;
+            }
+            aside{
+                grid-area: 2/1/3/2;
+            }
+            main{
+                grid-area: 2/2/4/3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <header>
+                ABC Consulting
+            </header>
+            
+            <aside>
+                Sidebar
+            </aside>
+
+            <main>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam corrupti facilis cum minima illum nostrum, libero velit ipsa enim tempore excepturi mollitia nulla quas sunt quos ipsam iste tenetur temporibus.</p>
+                <p>Vel, consectetur iusto. Ipsam quisquam porro quae sed maxime sint, adipisci cumque, beatae neque expedita aliquam? Nulla quaerat deserunt laborum libero repudiandae, voluptatem debitis maiores, rerum tempora quos quod cupiditate.</p>
+                <p>Id sequi sint ullam repudiandae molestiae distinctio nesciunt minima sit, dolore sunt facilis nulla nobis nemo fugit quisquam magnam harum et eos minus tempora. Veniam suscipit exercitationem doloremque nihil facere?</p>
+                <p>Est rerum cupiditate esse. Obcaecati corporis aliquam minima optio ducimus provident tenetur rem voluptate expedita tempore quos laboriosam adipisci dolorem, similique, earum molestiae beatae qui molestias magni! Iure, quas provident!</p>
+            </main>
+
+            <footer>
+                &copy; ABC Consulting
+            </footer>
+        </div>
+    </body>
+</html>

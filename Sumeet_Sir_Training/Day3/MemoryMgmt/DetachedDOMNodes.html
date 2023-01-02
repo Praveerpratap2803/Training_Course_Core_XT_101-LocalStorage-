@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let detachedNode = null;
+      function CreateNodes() {
+        let ul = document.createElement("ul");
+        for (let index = 0; index < 2000; index++) {
+          let newLi = document.createElement("li");
+          newLi.innerText = index;
+          ul.appendChild(newLi);
+        }
+        detachedNode = ul;
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <button onclick="CreateNodes()">Create DOM Nodes !</button>
+    </main>
+  </body>
+</html>

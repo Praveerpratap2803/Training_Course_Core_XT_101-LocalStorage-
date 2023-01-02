@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <audio src="./audio/horse.mp3" controls></audio> -->
+    <!-- Add loop for looping -->
+    <audio controls id="audio-player">
+        <source src="./audio/horse.mp3" type="audio/mpeg">
+        <source src="./audio/horse.ogg" type="audio/ogg">
+    </audio>
+
+    <button id="btn-toggle">Play / Pause</button>
+
+    <script>
+        const audioPlayer = document.querySelector('#audio-player')
+        const toggleBtn = document.querySelector( '#btn-toggle' );
+
+        toggleBtn.addEventListener('click',function(){
+            audioPlayer.play();
+        })
+
+    </script>
+
+
+
+</body>
+</html>

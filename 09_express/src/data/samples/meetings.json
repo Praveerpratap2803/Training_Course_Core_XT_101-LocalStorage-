@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Praveer project demo",
+        "description": "XT-102 project demo by Prashanth",
+        "date": "2022-09-16",
+        "startTime": {
+            "hours": 9,
+            "minutes": 30
+        },
+        "endTime": {
+            "hours": 9,
+            "minutes": 40
+        },
+        "attendees": [
+            "rohit@sapient.com",
+            "lokesh@sapient.com",
+            "damini@sapient.com"
+        ]
+    },
+    {
+        "name": "Praveer React project demo",
+        "description": "React project demo by Prashanth",
+        "date": "2022-10-10",
+        "startTime": {
+            "hours": 2,
+            "minutes": 0
+        },
+        "endTime": {
+            "hours": 2,
+            "minutes": 10
+        },
+        "attendees": [
+            "rohit@sapient.com",
+            "lokesh@sapient.com",
+            "damini@sapient.com",
+            "swati@sapient.com"
+        ]
+    }
+]

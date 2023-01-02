@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="number">Enter number</label>
+    <input type="number" id="number"/>
+
+
+    <button id="calculate">Calculate sum upto n</button>
+    <div>
+        Sum = <span id="result"></span>
+    </div>
+    <button id="wish">Wish me</button>
+
+    <script>
+        /*
+        * JavaScript is a single-thread programming language - Only 1 part of the application can execute.
+        * Web workers is a limited form of multi-threading where the "worker thread" cannot access DOM, and the workers have other restrictions
+        */
+        const numberEl = document.querySelector('#number')
+        const calculateBtn = document.querySelector('#calculate')
+        const resultEl = document.querySelector('#result')
+        const wishBtn = document.querySelector('#wish')
+
+        calculateBtn.addEventListener('click',function(){
+            const number = numberEl.value;
+
+            const worker = new Worker('./07_worker_thread.js')
+
+            worker.postMessage({
+                number
+            })
+            worker.onmessage = (event) =>{
+                const sum = event.data.sum;
+                resultEl.innerHTML = sum;
+            }
+
+        })
+
+        wishBtn.addEventListener('click',function(){
+            alert('Hello')
+        })
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

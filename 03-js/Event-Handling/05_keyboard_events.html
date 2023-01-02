@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Keyboard events</title>
+        <style>
+            body {
+                width: 80%;
+                margin: 1em auto;
+                background-color: #333;
+                color: ivory;
+            }
+
+            .message {
+                font-size: 0.8em;
+            }
+
+            .message-warn {
+                color: gold;
+            }
+            
+            .message-error {
+                color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-group post">
+            <label for="tweet-1">Post</label>
+            <div>
+                <textarea class="tweet" id="tweet-1" name="tweet-1"></textarea>
+            </div>
+            <span class="message"></span>
+        </div>
+        
+        <div class="form-group post">
+            <label for="tweet-2">Post</label>
+            <div>
+                <textarea class="tweet" id="tweet-2" name="tweet-2"></textarea>
+            </div>
+            <span class="message"></span>
+        </div>
+
+        <script>
+            const TWEET_CHAR_LIMIT = 20;
+
+            const posts = document.querySelectorAll( '.post' );
+
+            posts.forEach(
+                function( post ) {
+                    const tweetEl = post.querySelector( '.tweet' );
+                    const messageEl = post.querySelector( '.message' );
+
+                    // Explore: keydown, keypress
+                    tweetEl.addEventListener( 'keyup', function( event ) {
+                        console.log( event );
+                        console.log( event.key ); // key
+                        console.log( event.keyCode ); // ASCII code
+                        
+                        // value property exists ONLY for input elements - it holds the current value
+                        const tweet = tweetEl.value;
+                        const numCharsLeft = TWEET_CHAR_LIMIT - tweet.length;
+                        
+                        messageEl.textContent = `You have ${numCharsLeft} characters left`;
+
+                        if( numCharsLeft < 0 ) {
+                            messageEl.classList.add( 'message-error' );
+                            messageEl.classList.remove( 'message-warn' );
+                        } else if( numCharsLeft < 10 ) {
+                            messageEl.classList.add( 'message-warn' );
+                            messageEl.classList.remove( 'message-error' );
+                        } else {
+                            messageEl.classList.remove( 'message-warn' );
+                            messageEl.classList.remove( 'message-error' );
+                        }
+                    });
+                }
+            );
+        </script>
+    </body>
+</html>

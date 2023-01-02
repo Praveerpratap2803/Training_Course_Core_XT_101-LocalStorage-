@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Event Handling</title>
+    </head>
+    <body>
+        <!-- inline event handling -->
+        <button onclick="console.log('Button was clicked(1)');">
+            Click me
+        </button>
+
+        <script>
+            const button = document.querySelector('button');
+            button.onclick = function () {
+                console.log('button was clicked(2)');
+            };
+            button.onclick = function () {
+                console.log('button was clicked(3)');
+            };
+
+            button.addEventListener('click', function () {
+                console.log('button was clicked(4)');
+            });
+            button.addEventListener('click', function () {
+                console.log('button was clicked(5)');
+            });
+            function onBtnClick() {
+                console.log('button was clicked(6)');
+            }
+            button.addEventListener('click', onBtnClick);
+            setTimeout(function () {
+                button.removeEventListener('click', onBtnClick);
+            }, 5000);
+        </script>
+    </body>
+</html>

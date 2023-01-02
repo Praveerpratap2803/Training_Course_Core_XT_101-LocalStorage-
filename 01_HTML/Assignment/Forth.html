@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        caption{
+            font-weight: bold;
+            text-align: left;
+            
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table,th,td{
+            border: 1px solid black;
+        }
+        th,td{
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    
+    <table>
+        <caption>Plans</caption>
+        <caption style="caption-side: bottom; padding: 1em;">Hosting Plans and pricing for various cloud provider</caption>
+        <thead>
+            <tr>
+                <th rowspan="2" scope="col">Plan</th>
+                <th rowspan="2" scope="col">Max cluster size</th>
+                <th rowspan="2" scope="col">Cloud provider</th>
+                <th colspan="2" scope="col">Price in USD (per node)</th>
+            </tr>
+            <tr>
+                <th>Billed per hour</th>
+                <th>Billed per month</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            
+            <tr>
+                <th rowspan="3" scope="row">Free Tier</td>
+                <td>3</td>
+                <td>AWS</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>AWS</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>AWS</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th rowspan="3" scope="row">Basic</td>
+                <td>4</td>
+                <td>Azure</td>
+                <td>0.2</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Azure</td>
+                <td>0.2</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Azure</td>
+                <td>0.2</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <th rowspan="3" scope="row">Pro</td>
+                <td>200</td>
+                <td>GCP</td>
+                <td>0.4</td>
+                <td>0.8</td>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>GCP</td>
+                <td>0.4</td>
+                <td>0.8</td>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>GCP</td>
+                <td>0.4</td>
+                <td>0.8</td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>

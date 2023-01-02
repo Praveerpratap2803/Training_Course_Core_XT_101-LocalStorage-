@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Theming</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .dialog {
+                width: 50%; /* 50% width of parent remains */
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 10px;
+                box-shadow: 30px 100px 5px 0 rgb(235, 134, 134);
+                *margin-left: 25%; /* 50% / 2 */
+                *margin-right: 25%; /* 50% / 2 */
+                margin: 0 auto; /* browser will distribute remaining width equally between left and right */
+            }
+
+            /* DRY -> Dont Repeat Yourself */
+            .dialog__header,
+            .dialog__body {
+                padding: 1em;
+            }
+
+            /* your header class code will not affect other headers in the app */
+            /* .dialog .header {
+            } */
+            .dialog__header {
+                
+                border-top-left-radius: 9px;
+                border-top-right-radius: 9px;
+            }
+
+            .dialog__title {
+                margin: 0;
+                text-align: center;
+                color: ivory;
+            }
+            .dialog_info .dialog_e{
+                color: blue;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!--
+            Block-Element-Modifier (BEM) syntax for naming classes of a widget ("block")
+        -->
+        <!--
+            ARIA role
+        -->
+        <div
+            class="dialog dialog_info"
+            role="dialog"
+            aria-labelledby="login-dialog-title"
+            aria-describedby="login-dialog-content"
+        > <!-- block -->
+            <div class="dialog__header"> <!-- element -->
+                <h2 class="dialog__title" id="login-dialog-title">Login</h2> <!-- element -->
+            </div>
+            <div class="dialog__body" id="login-dialog-content"> <!-- element -->
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui harum debitis necessitatibus quam dolores? Quibusdam commodi, rerum aspernatur exercitationem quo deleniti optio ducimus doloribus qui ipsam harum amet aliquam non.
+            </div>
+        </div>
+        
+        <div
+            class="dialog dialog_e"
+            role="dialog"
+            aria-labelledby="fetch-error-dialog-title"
+            aria-describedby="fetch-error-dialog-content"
+        > <!-- block -->
+            <div class="dialog__header"> <!-- element -->
+                <h2 class="dialog__title" id="fetch-error-dialog-title">Login</h2> <!-- element -->
+            </div>
+            <div class="dialog__body" id="fetch-error-dialog-content"> <!-- element -->
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui harum debitis necessitatibus quam dolores? Quibusdam commodi, rerum aspernatur exercitationem quo deleniti optio ducimus doloribus qui ipsam harum amet aliquam non.
+            </div>
+        </div>
+    </body>
+</html>

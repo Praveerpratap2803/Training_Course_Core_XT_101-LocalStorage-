@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>POSTing data</title>
+        <style>
+            .form-group {
+                display: flex;
+                margin: 0.5em auto;
+            }
+
+            .form-group label {
+                flex-basis: 20%;
+            }
+
+            .form-group input {
+                flex-basis: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="add-workshop-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="startDate">Start date</label>
+                <input type="date" name="startDate" id="startDate" />
+            </div>
+            <div class="form-group">
+                <label for="endDate">End date</label>
+                <input type="date" name="endDate" id="endDate" />
+            </div>
+
+            <button type="submit">Add workshop</button>
+        </form>
+
+        <script>
+            const addWorkshopForm = document.querySelector( '#add-workshop-form' );
+
+            function isValid() {
+                return true;
+            }
+
+            addWorkshopForm.addEventListener( 'submit', function( event ) {
+                event.preventDefault();
+                
+                const nameEl = document.getElementById( 'name' );
+                const descriptionEl = document.getElementById( 'description' );
+                const startDateEl = document.getElementById( 'startDate' );
+                const endDateEl = document.getElementById( 'endDate' );
+
+                const data = {
+                    name: nameEl.value.trim(),
+                    description: descriptionEl.value.trim(),
+                    startDate: startDateEl.value.trim(), // "yyyy-mm-dd"
+                    endDate: endDateEl.value.trim()
+                };
+
+                // coverts a JS object/array into a JSON-formatted string
+                const body = JSON.stringify( data );
+                console.log( body );
+
+                if( isValid() ) {
+                    // we will submit the data through Ajax
+                    fetch(
+                        `https://workshops-server.herokuapp.com/workshops`,
+                        {
+                            method: 'POST', // better to use ALL CAPS for the method
+                            body: body,
+                            headers: {
+                                // Authorization: "sdkbkjwbejwbveiwbviwb"
+                                "Content-Type": "application/json"
+                            }
+                        }
+                    )
+                        .then(
+                            function( response ) {
+                                return response.json();
+                            }
+                        )
+                        .then(
+                            function( workshop ) {
+                                console.log( workshop );
+                            }
+                        )
+                        .catch(
+                            function( error ) {
+                                alert( error.message );
+                            }
+                        )
+
+                }
+            })
+        </script>
+    </body>
+</html>

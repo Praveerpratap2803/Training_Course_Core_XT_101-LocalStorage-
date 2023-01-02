@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.js"></script>
+  </head>
+  <body>
+    <div id="companyData"></div>
+
+    <script>
+      let companyInfo =
+        "<p>The company {{name}} is located at {{location}} </p>";
+
+      let template = Handlebars.compile(companyInfo);
+
+      let data = template({ name: "Sapient", location: "Gurugram" });
+
+      document.querySelector("#companyData").innerHTML += data;
+    </script>
+  </body>
+</html>

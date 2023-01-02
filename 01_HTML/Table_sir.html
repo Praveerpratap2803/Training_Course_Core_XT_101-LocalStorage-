@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tables</title>
+        <style>
+            caption {
+                caption-side: bottom; /* default is top */
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid black;
+            }
+
+            th,
+            td {
+                padding: 1em; /* 1em for padding = size of 1 character */
+            }
+
+            tbody th {
+                text-align: left;
+                font-weight: normal;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <!-- caption tag must be used as the first element within table tag -->
+            <!-- caption is better than using headings for tables - helps screen readers understand this is title for the table -->
+            <caption>Semester 8 marks card</caption>
+            <thead>
+                <tr>
+                    <!-- provide scope attribute to mark a heading cell as a column's / row's heading -->
+                    <th rowspan="2" scope="col">S.No</th> <!-- table heading cell -->
+                    <th rowspan="2" scope="col">Name</th> <!-- occupies 2 rows -->
+                    <th colspan="2" scope="col">Points</th> <!-- occupies cols 3, 4 -->
+                </tr>
+                <tr>
+                    <!-- we skip first 2 cells as it is spilled over from 1st row -->
+                    <!-- we provide only third, fourth cells -->
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td> <!-- table data cell -->
+                    <th scope="row">Computer Networks</th>
+                    <td>3</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>2</td> <!-- table data cell -->
+                    <th scope="row">Microprocessors</th>
+                    <td>4</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>3</td> <!-- table data cell -->
+                    <th scope="row">Data mining</th>
+                    <td>4</td>
+                    <td>B;</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

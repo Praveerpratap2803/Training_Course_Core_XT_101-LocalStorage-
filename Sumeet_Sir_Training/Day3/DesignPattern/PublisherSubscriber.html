@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      class Webinar {
+        constructor() {
+          this.participants = [];
+        }
+
+        subscribe(theParticipant) {
+          this.participants.push(theParticipant);
+        }
+        unsubscribe(theParticipant) {
+          this.participants = this.participants.filter(
+            p => p.name != theParticipant.name,
+          );
+        }
+
+        execute(eventArgs) {
+          for (const p of this.participants) {
+            p.Handler(eventArgs);
+          }
+        }
+      }
+
+      class Participant {
+        name;
+        constructor(name) {
+          this.name = name;
+        }
+
+        Handler(eventArgs) {
+          console.log(`Hey ${this.name} ! ${eventArgs}`);
+        }
+      }
+
+      let theJSWebinar = new Webinar();
+
+      let firstParticipant = new Participant("Amit");
+      let secondParticipant = new Participant("Romit");
+      let thirdParticipant = new Participant("Shobit");
+
+      theJSWebinar.subscribe(firstParticipant);
+      theJSWebinar.subscribe(secondParticipant);
+      theJSWebinar.subscribe(thirdParticipant);
+
+
+      // when event is occurring !
+
+      theJSWebinar.execute("Welcome !! This is a JS Webinar !");
+      theJSWebinar.unsubscribe(firstParticipant);
+
+      theJSWebinar.execute("Welcome !! This is a JS Webinar !");
+     
+      
+
+    </script>
+  </head>
+  <body></body>
+</html>
